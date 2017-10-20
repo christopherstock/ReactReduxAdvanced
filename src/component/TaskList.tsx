@@ -9,7 +9,7 @@
     *   @author  Christopher Stock
     *   @version 1.0
     *******************************************************************************************************************/
-    export class TaskList extends React.Component<tl.TaskListProps, null>
+    export class TaskListUnconnected extends React.Component<tl.TaskListProps, null>
     {
         /***************************************************************************************************************
         *   Being invoked every time this component renders.
@@ -81,3 +81,5 @@
             return items;
         }
     }
+
+    export const TaskList = tl.Connector.connectTaskList();

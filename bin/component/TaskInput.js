@@ -11,6 +11,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 exports.__esModule = true;
 var React = require("react");
+var tl = require("../tl");
 /*******************************************************************************************************************
 *   Represents the input component that lets the user create new tasks.
 *   This is an example for a stateful and controlled component.
@@ -18,14 +19,14 @@ var React = require("react");
 *   @author  Christopher Stock
 *   @version 1.0
 *******************************************************************************************************************/
-var TaskInput = /** @class */ (function (_super) {
-    __extends(TaskInput, _super);
+var TaskInputUnconnected = /** @class */ (function (_super) {
+    __extends(TaskInputUnconnected, _super);
     /***************************************************************************************************************
     *   Initializes this component by setting the initial state.
     *
     *   @param props The initial properties being passed in the component tag.
     ***************************************************************************************************************/
-    function TaskInput(props) {
+    function TaskInputUnconnected(props) {
         var _this = _super.call(this, props) || this;
         _this.state = {
             inputError: false,
@@ -38,7 +39,7 @@ var TaskInput = /** @class */ (function (_super) {
     *
     *   @return The rendered JSX.
     ***************************************************************************************************************/
-    TaskInput.prototype.render = function () {
+    TaskInputUnconnected.prototype.render = function () {
         var _this = this;
         console.log("TaskInput.render() being invoked");
         return React.createElement("form", { onSubmit: function (event) { _this.onFormSubmit(event); } },
@@ -51,7 +52,7 @@ var TaskInput = /** @class */ (function (_super) {
     *
     *   @param event The event when the input field value changes.
     ***************************************************************************************************************/
-    TaskInput.prototype.onInputChange = function (event) {
+    TaskInputUnconnected.prototype.onInputChange = function (event) {
         console.log("TaskInput.onInputChange being invoked");
         this.setState({
             inputError: false,
@@ -63,7 +64,7 @@ var TaskInput = /** @class */ (function (_super) {
     *
     *   @param event The form submission event.
     ***************************************************************************************************************/
-    TaskInput.prototype.onFormSubmit = function (event) {
+    TaskInputUnconnected.prototype.onFormSubmit = function (event) {
         console.log("TaskInput.onFormSubmit being invoked");
         // suppress page reload
         event.preventDefault();
@@ -90,7 +91,8 @@ var TaskInput = /** @class */ (function (_super) {
         }
     };
     ;
-    return TaskInput;
+    return TaskInputUnconnected;
 }(React.Component));
-exports.TaskInput = TaskInput;
+exports.TaskInputUnconnected = TaskInputUnconnected;
+exports.TaskInput = tl.Connector.connectTaskInput();
 //# sourceMappingURL=TaskInput.js.map

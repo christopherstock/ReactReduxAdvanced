@@ -1,7 +1,9 @@
 
-    import * as React    from 'react';
-    import * as ReactDOM from 'react-dom';
-    import * as tl       from './tl';
+    import * as React      from 'react';
+    import * as ReactDOM   from 'react-dom';
+    import * as Redux      from 'redux';
+    import * as ReactRedux from 'react-redux';
+    import * as tl         from './tl';
 
     /*******************************************************************************************************************
     *   Being invoked when all components of the HTML page are fully loaded.
@@ -15,11 +17,24 @@
         console.log(     APPLICATION_TITLE );
         document.title = APPLICATION_TITLE;
 
+        // create redux store
+        let store = Redux.createStore( tl.Reducer.taskListReducer );
+
+        // dispatch default items
+        store.dispatch( tl.Action.createTaskAction( "Müll rausbringen" ) );
+        store.dispatch( tl.Action.createTaskAction( "Abwaschen"        ) );
+        store.dispatch( tl.Action.createTaskAction( "Wäsche waschen"   ) );
+
         // render the App component into the main container
         ReactDOM.render(
-            <tl.App
-                title={ APPLICATION_TITLE }
-            />,
+
+            <ReactRedux.Provider store={ store }>
+
+                <tl.App
+                    title={ APPLICATION_TITLE }
+                />
+
+            </ReactRedux.Provider>,
             document.getElementById('mainContainer')
         );
     };

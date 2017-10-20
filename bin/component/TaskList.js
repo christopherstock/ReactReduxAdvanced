@@ -11,6 +11,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 exports.__esModule = true;
 var React = require("react");
+var tl = require("../tl");
 /*******************************************************************************************************************
 *   Represents the TaskList component.
 *   This is an example for a stateless component.
@@ -18,9 +19,9 @@ var React = require("react");
 *   @author  Christopher Stock
 *   @version 1.0
 *******************************************************************************************************************/
-var TaskList = /** @class */ (function (_super) {
-    __extends(TaskList, _super);
-    function TaskList() {
+var TaskListUnconnected = /** @class */ (function (_super) {
+    __extends(TaskListUnconnected, _super);
+    function TaskListUnconnected() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /***************************************************************************************************************
@@ -28,7 +29,7 @@ var TaskList = /** @class */ (function (_super) {
     *
     *   @return JSX.Element The rendered JSX.
     ***************************************************************************************************************/
-    TaskList.prototype.render = function () {
+    TaskListUnconnected.prototype.render = function () {
         console.log("TaskList.render() being invoked");
         // animate main container height later
         document.getElementById("mainContainer").style.height = (150 + (this.props.taskList.length * 55)) + "px";
@@ -39,7 +40,7 @@ var TaskList = /** @class */ (function (_super) {
     *
     *   @return An array with all rendered JSX elements.
     ***************************************************************************************************************/
-    TaskList.prototype.createItems = function () {
+    TaskListUnconnected.prototype.createItems = function () {
         var _this = this;
         var items = [];
         var _loop_1 = function (index) {
@@ -56,7 +57,8 @@ var TaskList = /** @class */ (function (_super) {
         }
         return items;
     };
-    return TaskList;
+    return TaskListUnconnected;
 }(React.Component));
-exports.TaskList = TaskList;
+exports.TaskListUnconnected = TaskListUnconnected;
+exports.TaskList = tl.Connector.connectTaskList();
 //# sourceMappingURL=TaskList.js.map

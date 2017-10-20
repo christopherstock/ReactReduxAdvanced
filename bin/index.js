@@ -2,6 +2,8 @@
 exports.__esModule = true;
 var React = require("react");
 var ReactDOM = require("react-dom");
+var Redux = require("redux");
+var ReactRedux = require("react-redux");
 var tl = require("./tl");
 /*******************************************************************************************************************
 *   Being invoked when all components of the HTML page are fully loaded.
@@ -12,8 +14,15 @@ window.onload = function () {
     // acclaim debug console and set page title
     console.log(APPLICATION_TITLE);
     document.title = APPLICATION_TITLE;
+    // create redux store
+    var store = Redux.createStore(tl.Reducer.taskListReducer);
+    // dispatch default items
+    store.dispatch(tl.Action.createTaskAction("Müll rausbringen"));
+    store.dispatch(tl.Action.createTaskAction("Abwaschen"));
+    store.dispatch(tl.Action.createTaskAction("Wäsche waschen"));
     // render the App component into the main container
-    ReactDOM.render(React.createElement(tl.App, { title: APPLICATION_TITLE }), document.getElementById('mainContainer'));
+    ReactDOM.render(React.createElement(ReactRedux.Provider, { store: store },
+        React.createElement(tl.App, { title: APPLICATION_TITLE })), document.getElementById('mainContainer'));
 };
 /*******************************************************************************************************************
 *   Being invoked when all components of the HTML page are fully unloaded.

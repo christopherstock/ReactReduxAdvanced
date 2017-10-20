@@ -1,6 +1,6 @@
 
-    import * as React    from 'react';
-    import * as tl       from '../tl';
+    import * as React      from 'react';
+    import * as tl         from '../tl';
 
     /*******************************************************************************************************************
     *   Represents the input component that lets the user create new tasks.
@@ -9,7 +9,7 @@
     *   @author  Christopher Stock
     *   @version 1.0
     *******************************************************************************************************************/
-    export class TaskInput extends React.Component<tl.TaskInputProps, tl.TaskInputState>
+    export class TaskInputUnconnected extends React.Component<tl.TaskInputProps, tl.TaskInputState>
     {
         /***************************************************************************************************************
         *   Initializes this component by setting the initial state.
@@ -121,3 +121,5 @@
             }
         };
     }
+
+    export const TaskInput = tl.Connector.connectTaskInput();
