@@ -965,6 +965,9 @@ exports.__esModule = true;
 __export(__webpack_require__(33));
 __export(__webpack_require__(34));
 __export(__webpack_require__(35));
+__export(__webpack_require__(36));
+__export(__webpack_require__(37));
+__export(__webpack_require__(38));
 
 
 /***/ }),
@@ -21534,6 +21537,420 @@ var TaskList = /** @class */ (function (_super) {
     return TaskList;
 }(React.Component));
 exports.TaskList = TaskList;
+
+
+/***/ }),
+/* 36 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+exports.__esModule = true;
+var ACTION_CREATE_TASK = 'ACTION_CREATE_TASK';
+var ACTION_DELETE_TASK = 'ACTION_DELETE_TASK';
+var ACTION_MOVE_TASK_UP = 'ACTION_MOVE_TASK_UP';
+var ACTION_MOVE_TASK_DOWN = 'ACTION_MOVE_TASK_DOWN';
+var ACTION_SET_INPUT_FIELD = 'ACTION_SET_INPUT_FIELD';
+var ACTION_CLEAR_INPUT_FIELD = 'ACTION_CLEAR_INPUT_FIELD';
+var ACTION_SET_INPUT_ERROR = 'ACTION_SET_INPUT_ERROR';
+var ACTION_CLEAR_INPUT_ERROR = 'ACTION_CLEAR_INPUT_ERROR';
+/*******************************************************************************************************************
+*   Specifies all redux action creators.
+*
+*   @author  Christopher Stock
+*   @version 1.0
+*******************************************************************************************************************/
+var Action = /** @class */ (function () {
+    function Action() {
+    }
+    /***************************************************************************************************************
+    *   Specifies the redux action 'create task'.
+    *
+    *   @param {string} taskName The name of the task to create.
+    *
+    *   @return {Object} The action object for creating a task.
+    ***************************************************************************************************************/
+    Action.createTaskAction = function (taskName) {
+        return {
+            type: ACTION_CREATE_TASK,
+            taskName: taskName
+        };
+    };
+    /***************************************************************************************************************
+    *   Specifies the redux action 'delete task'.
+    *
+    *   @param {number} taskIndex The index of the task to delete.
+    *
+    *   @return {Object} The action object for deleting a task.
+    ***************************************************************************************************************/
+    Action.deleteTaskAction = function (taskIndex) {
+        return {
+            type: ACTION_DELETE_TASK,
+            taskIndex: taskIndex
+        };
+    };
+    /***************************************************************************************************************
+    *   Specifies the redux action 'move task up'.
+    *
+    *   @param {number} taskIndex The index of the task to move up.
+    *
+    *   @return {Object} The action object for moving a task up.
+    ***************************************************************************************************************/
+    Action.moveTaskUpAction = function (taskIndex) {
+        return {
+            type: ACTION_MOVE_TASK_UP,
+            taskIndex: taskIndex
+        };
+    };
+    /***************************************************************************************************************
+    *   Specifies the redux action 'move task down'.
+    *
+    *   @param {number} taskIndex The index of the task to move down.
+    *
+    *   @return {Object} The action object for moving a task down.
+    ***************************************************************************************************************/
+    Action.moveTaskDownAction = function (taskIndex) {
+        return {
+            type: ACTION_MOVE_TASK_DOWN,
+            taskIndex: taskIndex
+        };
+    };
+    /***************************************************************************************************************
+    *   Specifies the redux action 'set input field'.
+    *
+    *   @param {string} inputText The text to set into the input field.
+    *
+    *   @return {Object} The action object for setting the input field.
+    ***************************************************************************************************************/
+    Action.setInputFieldAction = function (inputText) {
+        return {
+            type: ACTION_SET_INPUT_FIELD,
+            inputText: inputText
+        };
+    };
+    /***************************************************************************************************************
+    *   Specifies the redux action 'clear input field'.
+    *
+    *   @return {Object} The action object for clearing the input field.
+    ***************************************************************************************************************/
+    Action.clearInputFieldAction = function () {
+        return {
+            type: ACTION_CLEAR_INPUT_FIELD
+        };
+    };
+    /***************************************************************************************************************
+    *   Specifies the redux action 'set input error'.
+    *
+    *   @return {Object} The action object for setting the input error.
+    ***************************************************************************************************************/
+    Action.setInputErrorAction = function () {
+        return {
+            type: ACTION_SET_INPUT_ERROR
+        };
+    };
+    /***************************************************************************************************************
+    *   Specifies the redux action 'clear input error'.
+    *
+    *   @return {Object} The action object for clearing the input error.
+    ***************************************************************************************************************/
+    Action.clearInputErrorAction = function () {
+        return {
+            type: ACTION_CLEAR_INPUT_ERROR
+        };
+    };
+    return Action;
+}());
+exports.Action = Action;
+
+
+/***/ }),
+/* 37 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+exports.__esModule = true;
+/*******************************************************************************************************************
+*   Specifies all redux connector methods.
+*
+*   @author  Christopher Stock
+*   @version 1.0
+*******************************************************************************************************************/
+var Connector = /** @class */ (function () {
+    function Connector() {
+    }
+    /***************************************************************************************************************
+    *   Connects the react component 'TaskList' with redux and returns the connected instance.
+    *
+    *   @return {Object} The connected react component.
+    ***************************************************************************************************************/
+    Connector.connectTaskList = function () {
+        var mapStateToProps = function (state) {
+            return {
+                taskList: state.taskList
+            };
+        };
+        var mapDispatchToProps = function (dispatch) {
+            return {
+                onTaskDelete: function (index) { return dispatch(Action.deleteTaskAction(index)); },
+                onTaskMoveUp: function (index) { return dispatch(Action.moveTaskUpAction(index)); },
+                onTaskMoveDown: function (index) { return dispatch(Action.moveTaskDownAction(index)); }
+            };
+        };
+        return ReactRedux.connect(mapStateToProps, mapDispatchToProps)(TaskListUnconnected);
+    };
+    /***************************************************************************************************************
+    *   Connects the react component 'TaskInput' with redux and returns the connected instance.
+    *
+    *   @return {Object} The connected react component.
+    ***************************************************************************************************************/
+    Connector.connectTaskInput = function () {
+        var mapStateToProps = function (state) {
+            return {
+                inputError: state.inputError,
+                inputText: state.inputText
+            };
+        };
+        var mapDispatchToProps = function (dispatch) {
+            return {
+                onTaskCreate: function (text) { return dispatch(Action.createTaskAction(text)); },
+                onSetInputField: function (text) { return dispatch(Action.setInputFieldAction(text)); },
+                onClearInputField: function () { return dispatch(Action.clearInputFieldAction()); },
+                onSetInputError: function () { return dispatch(Action.setInputErrorAction()); },
+                onClearInputError: function () { return dispatch(Action.clearInputErrorAction()); }
+            };
+        };
+        return ReactRedux.connect(mapStateToProps, mapDispatchToProps)(TaskInputUnconnected);
+    };
+    return Connector;
+}());
+exports.Connector = Connector;
+
+
+/***/ }),
+/* 38 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+exports.__esModule = true;
+/*******************************************************************************************************************
+*   Specifies all redux reducers.
+*
+*   @author  Christopher Stock
+*   @version 1.0
+*******************************************************************************************************************/
+var Reducer = /** @class */ (function () {
+    function Reducer() {
+    }
+    /***************************************************************************************************************
+    *   Specifies the global reducer method for the entire TaskList application.
+    *
+    *   @param {Object} state  The existing state object.
+    *   @param {Object} action The action to perform on the state object.
+    *
+    *   @return {Object} The new state object.
+    ***************************************************************************************************************/
+    Reducer.taskListReducer = function (state, action) {
+        if (state === void 0) { state = Reducer.createDefaultState(); }
+        console.log("taskListReducer reduces action [", action, "] State BEFORE is [", state, "]");
+        var newState = null;
+        switch (action.type) {
+            case ACTION_CREATE_TASK:
+                {
+                    newState = Reducer.createTaskReducer(state, action);
+                    break;
+                }
+            case ACTION_DELETE_TASK:
+                {
+                    newState = Reducer.deleteTaskReducer(state, action);
+                    break;
+                }
+            case ACTION_MOVE_TASK_UP:
+                {
+                    newState = Reducer.moveTaskUpReducer(state, action);
+                    break;
+                }
+            case ACTION_MOVE_TASK_DOWN:
+                {
+                    newState = Reducer.moveTaskDownReducer(state, action);
+                    break;
+                }
+            case ACTION_SET_INPUT_FIELD:
+                {
+                    newState = Reducer.setInputFieldReducer(state, action);
+                    break;
+                }
+            case ACTION_CLEAR_INPUT_FIELD:
+                {
+                    newState = Reducer.clearInputFieldReducer(state);
+                    break;
+                }
+            case ACTION_SET_INPUT_ERROR:
+                {
+                    newState = Reducer.setInputErrorReducer(state);
+                    break;
+                }
+            case ACTION_CLEAR_INPUT_ERROR:
+                {
+                    newState = Reducer.clearInputErrorReducer(state);
+                    break;
+                }
+            default:
+                {
+                    newState = state;
+                    break;
+                }
+        }
+        console.log(" State AFTER is [", newState, "]");
+        return newState;
+    };
+    /***************************************************************************************************************
+    *   Reduces the state in order to create a new task.
+    *
+    *   @param {Object} state  The existing state object.
+    *   @param {Object} action The action to perform on the state object.
+    *
+    *   @return {Object} The new and reduced state object.
+    ***************************************************************************************************************/
+    Reducer.createTaskReducer = function (state, action) {
+        var newTasks = state.taskList.slice();
+        newTasks.push(action.taskName);
+        return {
+            taskList: newTasks,
+            inputError: state.inputError,
+            inputText: state.inputText
+        };
+    };
+    /***************************************************************************************************************
+    *   Reduces the state in order to delete a new task.
+    *
+    *   @param {Object} state  The existing state object.
+    *   @param {Object} action The action to perform on the state object.
+    *
+    *   @return {Object} The new and reduced state object.
+    ***************************************************************************************************************/
+    Reducer.deleteTaskReducer = function (state, action) {
+        var newTasks = state.taskList.slice();
+        newTasks.splice(action.taskIndex, 1);
+        return {
+            taskList: newTasks,
+            inputError: state.inputError,
+            inputText: state.inputText
+        };
+    };
+    /***************************************************************************************************************
+    *   Reduces the state in order to move a task up.
+    *
+    *   @param {Object} state  The existing state object.
+    *   @param {Object} action The action to perform on the state object.
+    *
+    *   @return {Object} The new and reduced state object.
+    ***************************************************************************************************************/
+    Reducer.moveTaskUpReducer = function (state, action) {
+        var newTasks = state.taskList.slice();
+        var taskToMoveUp = newTasks[action.taskIndex];
+        var taskToMoveDown = newTasks[action.taskIndex - 1];
+        newTasks[action.taskIndex - 1] = taskToMoveUp;
+        newTasks[action.taskIndex] = taskToMoveDown;
+        return {
+            taskList: newTasks,
+            inputError: state.inputError,
+            inputText: state.inputText
+        };
+    };
+    /***************************************************************************************************************
+    *   Reduces the state in order to move a task down.
+    *
+    *   @param {Object} state  The existing state object.
+    *   @param {Object} action The action to perform on the state object.
+    *
+    *   @return {Object} The new and reduced state object.
+    ***************************************************************************************************************/
+    Reducer.moveTaskDownReducer = function (state, action) {
+        var newTasks = state.taskList.slice();
+        var taskToMoveUp = newTasks[action.taskIndex + 1];
+        var taskToMoveDown = newTasks[action.taskIndex];
+        newTasks[action.taskIndex] = taskToMoveUp;
+        newTasks[action.taskIndex + 1] = taskToMoveDown;
+        return {
+            taskList: newTasks,
+            inputError: state.inputError,
+            inputText: state.inputText
+        };
+    };
+    /***************************************************************************************************************
+    *   Reduces the state in order to set a text for the input field.
+    *
+    *   @param {Object} state  The existing state object.
+    *   @param {Object} action The action to perform on the state object.
+    *
+    *   @return {Object} The new and reduced state object.
+    ***************************************************************************************************************/
+    Reducer.setInputFieldReducer = function (state, action) {
+        return {
+            taskList: state.taskList,
+            inputError: state.inputError,
+            inputText: action.inputText
+        };
+    };
+    /***************************************************************************************************************
+    *   Reduces the state in order to clear the text in the input field.
+    *
+    *   @param {Object} state The existing state object.
+    *
+    *   @return {Object} The new and reduced state object.
+    ***************************************************************************************************************/
+    Reducer.clearInputFieldReducer = function (state) {
+        return {
+            taskList: state.taskList,
+            inputError: state.inputError,
+            inputText: ""
+        };
+    };
+    /***************************************************************************************************************
+    *   Reduces the state in order to set the input error for the input field.
+    *
+    *   @param {Object} state The existing state object.
+    *
+    *   @return {Object} The new and reduced state object.
+    ***************************************************************************************************************/
+    Reducer.setInputErrorReducer = function (state) {
+        return {
+            taskList: state.taskList,
+            inputError: true,
+            inputText: state.inputText
+        };
+    };
+    /***************************************************************************************************************
+    *   Reduces the state in order to clear the input error for the input field.
+    *
+    *   @param {Object} state The existing state object.
+    *
+    *   @return {Object} The new and reduced state object.
+    ***************************************************************************************************************/
+    Reducer.clearInputErrorReducer = function (state) {
+        return {
+            taskList: state.taskList,
+            inputError: false,
+            inputText: state.inputText
+        };
+    };
+    /***************************************************************************************************************
+    *   Creates and returns the default state.
+    *
+    *   @return {Object} The initially constructed state object.
+    ***************************************************************************************************************/
+    Reducer.createDefaultState = function () {
+        return {
+            taskList: [],
+            inputError: false,
+            inputText: ""
+        };
+    };
+    return Reducer;
+}());
+exports.Reducer = Reducer;
 
 
 /***/ })
