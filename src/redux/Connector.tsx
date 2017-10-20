@@ -17,13 +17,13 @@
         ***************************************************************************************************************/
         static connectTaskList()
         {
-            const mapStateToProps = ( state:any ) => {
+            const mapStateToProps:any = ( state:any ) => {
                 return {
                     taskList: state.taskList
                 }
             };
 
-            const mapDispatchToProps = ( dispatch:any ) => {
+            const mapDispatchToProps:any = ( dispatch:any ) => {
                 return {
                     onTaskDelete:   ( index:number ) => dispatch( tl.Action.deleteTaskAction(   index ) ),
                     onTaskMoveUp:   ( index:number ) => dispatch( tl.Action.moveTaskUpAction(   index ) ),
@@ -44,14 +44,14 @@
         ***************************************************************************************************************/
         static connectTaskInput()
         {
-            const mapStateToProps = ( state:any ) => {
+            const mapStateToProps:any = ( state:any ) => {
                 return {
                     inputError: state.inputError,
                     inputText:  state.inputText
                 }
             };
 
-            const mapDispatchToProps = ( dispatch:any ) => {
+            const mapDispatchToProps:any = ( dispatch:any ) => {
                 return {
                     onTaskCreate:      ( text:string ) => dispatch( tl.Action.createTaskAction(      text ) ),
                     onSetInputField:   ( text:string ) => dispatch( tl.Action.setInputFieldAction(   text ) ),

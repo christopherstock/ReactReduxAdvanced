@@ -7,5 +7,17 @@
     *******************************************************************************************************************/
     export interface TaskInputProps
     {
-        onTaskCreate        :Function;
+        inputError        :boolean;
+
+        inputText         :string;
+
+        onTaskCreate      :Function;
+
+        onSetInputField   :Function;
+
+        onSetInputError   :Function;
+
+        onClearInputField :Function;
+
+        onClearInputError :Function;
     }

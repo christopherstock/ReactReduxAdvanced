@@ -11,7 +11,6 @@ var __extends = (this && this.__extends) || (function () {
 })();
 exports.__esModule = true;
 var React = require("react");
-var tl = require("../tl");
 /*******************************************************************************************************************
 *   Represents the TaskList component.
 *   This is an example for a stateless component.
@@ -60,5 +59,4 @@ var TaskListUnconnected = /** @class */ (function (_super) {
     return TaskListUnconnected;
 }(React.Component));
 exports.TaskListUnconnected = TaskListUnconnected;
-exports.TaskList = tl.Connector.connectTaskList();
 //# sourceMappingURL=TaskList.js.map

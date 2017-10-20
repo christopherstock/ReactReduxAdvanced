@@ -81,5 +81,3 @@
             return items;
         }
     }
-
-    export const TaskList = tl.Connector.connectTaskList();

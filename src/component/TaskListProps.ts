@@ -7,11 +7,11 @@
     *******************************************************************************************************************/
     export interface TaskListProps
     {
-        taskList            :string[];
+        taskList       :string[];
 
-        onTaskDelete        :Function;
+        onTaskDelete   :Function;
 
-        onTaskMoveDown      :Function;
+        onTaskMoveDown :Function;
 
-        onTaskMoveUp        :Function;
+        onTaskMoveUp   :Function;
     }
