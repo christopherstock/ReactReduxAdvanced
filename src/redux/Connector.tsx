@@ -1,4 +1,7 @@
 
+    import * as ReactRedux from 'react-redux';
+    import * as tl         from '../tl';
+
     /*******************************************************************************************************************
     *   Specifies all redux connector methods.
     *
@@ -14,24 +17,24 @@
         ***************************************************************************************************************/
         static connectTaskList()
         {
-            const mapStateToProps = ( state ) => {
+            const mapStateToProps = ( state:any ) => {
                 return {
                     taskList: state.taskList
                 }
             };
 
-            const mapDispatchToProps = ( dispatch ) => {
+            const mapDispatchToProps = ( dispatch:any ) => {
                 return {
-                    onTaskDelete:   ( index ) => dispatch( Action.deleteTaskAction(   index ) ),
-                    onTaskMoveUp:   ( index ) => dispatch( Action.moveTaskUpAction(   index ) ),
-                    onTaskMoveDown: ( index ) => dispatch( Action.moveTaskDownAction( index ) ),
+                    onTaskDelete:   ( index:number ) => dispatch( tl.Action.deleteTaskAction(   index ) ),
+                    onTaskMoveUp:   ( index:number ) => dispatch( tl.Action.moveTaskUpAction(   index ) ),
+                    onTaskMoveDown: ( index:number ) => dispatch( tl.Action.moveTaskDownAction( index ) ),
                 }
             };
 
             return ReactRedux.connect(
                 mapStateToProps,
                 mapDispatchToProps
-            )( TaskListUnconnected );
+            )( tl.TaskListUnconnected );
         }
 
         /***************************************************************************************************************
@@ -41,26 +44,26 @@
         ***************************************************************************************************************/
         static connectTaskInput()
         {
-            const mapStateToProps = ( state ) => {
+            const mapStateToProps = ( state:any ) => {
                 return {
                     inputError: state.inputError,
                     inputText:  state.inputText
                 }
             };
 
-            const mapDispatchToProps = ( dispatch ) => {
+            const mapDispatchToProps = ( dispatch:any ) => {
                 return {
-                    onTaskCreate:      ( text ) => dispatch( Action.createTaskAction(      text ) ),
-                    onSetInputField:   ( text ) => dispatch( Action.setInputFieldAction(   text ) ),
-                    onClearInputField: ()       => dispatch( Action.clearInputFieldAction()       ),
-                    onSetInputError:   ()       => dispatch( Action.setInputErrorAction()         ),
-                    onClearInputError: ()       => dispatch( Action.clearInputErrorAction()       ),
+                    onTaskCreate:      ( text:string ) => dispatch( tl.Action.createTaskAction(      text ) ),
+                    onSetInputField:   ( text:string ) => dispatch( tl.Action.setInputFieldAction(   text ) ),
+                    onClearInputField: ()              => dispatch( tl.Action.clearInputFieldAction()       ),
+                    onSetInputError:   ()              => dispatch( tl.Action.setInputErrorAction()         ),
+                    onClearInputError: ()              => dispatch( tl.Action.clearInputErrorAction()       ),
                 }
             };
 
             return ReactRedux.connect(
                 mapStateToProps,
                 mapDispatchToProps
-            )( TaskInputUnconnected );
+            )( tl.TaskInputUnconnected );
         }
     }

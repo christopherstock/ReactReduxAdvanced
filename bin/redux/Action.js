@@ -1,13 +1,5 @@
 "use strict";
 exports.__esModule = true;
-var ACTION_CREATE_TASK = 'ACTION_CREATE_TASK';
-var ACTION_DELETE_TASK = 'ACTION_DELETE_TASK';
-var ACTION_MOVE_TASK_UP = 'ACTION_MOVE_TASK_UP';
-var ACTION_MOVE_TASK_DOWN = 'ACTION_MOVE_TASK_DOWN';
-var ACTION_SET_INPUT_FIELD = 'ACTION_SET_INPUT_FIELD';
-var ACTION_CLEAR_INPUT_FIELD = 'ACTION_CLEAR_INPUT_FIELD';
-var ACTION_SET_INPUT_ERROR = 'ACTION_SET_INPUT_ERROR';
-var ACTION_CLEAR_INPUT_ERROR = 'ACTION_CLEAR_INPUT_ERROR';
 /*******************************************************************************************************************
 *   Specifies all redux action creators.
 *
@@ -26,7 +18,7 @@ var Action = /** @class */ (function () {
     ***************************************************************************************************************/
     Action.createTaskAction = function (taskName) {
         return {
-            type: ACTION_CREATE_TASK,
+            type: Action.ACTION_CREATE_TASK,
             taskName: taskName
         };
     };
@@ -39,7 +31,7 @@ var Action = /** @class */ (function () {
     ***************************************************************************************************************/
     Action.deleteTaskAction = function (taskIndex) {
         return {
-            type: ACTION_DELETE_TASK,
+            type: Action.ACTION_DELETE_TASK,
             taskIndex: taskIndex
         };
     };
@@ -52,7 +44,7 @@ var Action = /** @class */ (function () {
     ***************************************************************************************************************/
     Action.moveTaskUpAction = function (taskIndex) {
         return {
-            type: ACTION_MOVE_TASK_UP,
+            type: Action.ACTION_MOVE_TASK_UP,
             taskIndex: taskIndex
         };
     };
@@ -65,7 +57,7 @@ var Action = /** @class */ (function () {
     ***************************************************************************************************************/
     Action.moveTaskDownAction = function (taskIndex) {
         return {
-            type: ACTION_MOVE_TASK_DOWN,
+            type: Action.ACTION_MOVE_TASK_DOWN,
             taskIndex: taskIndex
         };
     };
@@ -78,7 +70,7 @@ var Action = /** @class */ (function () {
     ***************************************************************************************************************/
     Action.setInputFieldAction = function (inputText) {
         return {
-            type: ACTION_SET_INPUT_FIELD,
+            type: Action.ACTION_SET_INPUT_FIELD,
             inputText: inputText
         };
     };
@@ -89,7 +81,7 @@ var Action = /** @class */ (function () {
     ***************************************************************************************************************/
     Action.clearInputFieldAction = function () {
         return {
-            type: ACTION_CLEAR_INPUT_FIELD
+            type: Action.ACTION_CLEAR_INPUT_FIELD
         };
     };
     /***************************************************************************************************************
@@ -99,7 +91,7 @@ var Action = /** @class */ (function () {
     ***************************************************************************************************************/
     Action.setInputErrorAction = function () {
         return {
-            type: ACTION_SET_INPUT_ERROR
+            type: Action.ACTION_SET_INPUT_ERROR
         };
     };
     /***************************************************************************************************************
@@ -109,9 +101,17 @@ var Action = /** @class */ (function () {
     ***************************************************************************************************************/
     Action.clearInputErrorAction = function () {
         return {
-            type: ACTION_CLEAR_INPUT_ERROR
+            type: Action.ACTION_CLEAR_INPUT_ERROR
         };
     };
+    Action.ACTION_CREATE_TASK = 'ACTION_CREATE_TASK';
+    Action.ACTION_DELETE_TASK = 'ACTION_DELETE_TASK';
+    Action.ACTION_MOVE_TASK_UP = 'ACTION_MOVE_TASK_UP';
+    Action.ACTION_MOVE_TASK_DOWN = 'ACTION_MOVE_TASK_DOWN';
+    Action.ACTION_SET_INPUT_FIELD = 'ACTION_SET_INPUT_FIELD';
+    Action.ACTION_CLEAR_INPUT_FIELD = 'ACTION_CLEAR_INPUT_FIELD';
+    Action.ACTION_SET_INPUT_ERROR = 'ACTION_SET_INPUT_ERROR';
+    Action.ACTION_CLEAR_INPUT_ERROR = 'ACTION_CLEAR_INPUT_ERROR';
     return Action;
 }());
 exports.Action = Action;

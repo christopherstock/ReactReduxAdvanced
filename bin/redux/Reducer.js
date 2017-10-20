@@ -1,5 +1,6 @@
 "use strict";
 exports.__esModule = true;
+var tl = require("../tl");
 /*******************************************************************************************************************
 *   Specifies all redux reducers.
 *
@@ -22,42 +23,42 @@ var Reducer = /** @class */ (function () {
         console.log("taskListReducer reduces action [", action, "] State BEFORE is [", state, "]");
         var newState = null;
         switch (action.type) {
-            case ACTION_CREATE_TASK:
+            case tl.Action.ACTION_CREATE_TASK:
                 {
                     newState = Reducer.createTaskReducer(state, action);
                     break;
                 }
-            case ACTION_DELETE_TASK:
+            case tl.Action.ACTION_DELETE_TASK:
                 {
                     newState = Reducer.deleteTaskReducer(state, action);
                     break;
                 }
-            case ACTION_MOVE_TASK_UP:
+            case tl.Action.ACTION_MOVE_TASK_UP:
                 {
                     newState = Reducer.moveTaskUpReducer(state, action);
                     break;
                 }
-            case ACTION_MOVE_TASK_DOWN:
+            case tl.Action.ACTION_MOVE_TASK_DOWN:
                 {
                     newState = Reducer.moveTaskDownReducer(state, action);
                     break;
                 }
-            case ACTION_SET_INPUT_FIELD:
+            case tl.Action.ACTION_SET_INPUT_FIELD:
                 {
                     newState = Reducer.setInputFieldReducer(state, action);
                     break;
                 }
-            case ACTION_CLEAR_INPUT_FIELD:
+            case tl.Action.ACTION_CLEAR_INPUT_FIELD:
                 {
                     newState = Reducer.clearInputFieldReducer(state);
                     break;
                 }
-            case ACTION_SET_INPUT_ERROR:
+            case tl.Action.ACTION_SET_INPUT_ERROR:
                 {
                     newState = Reducer.setInputErrorReducer(state);
                     break;
                 }
-            case ACTION_CLEAR_INPUT_ERROR:
+            case tl.Action.ACTION_CLEAR_INPUT_ERROR:
                 {
                     newState = Reducer.clearInputErrorReducer(state);
                     break;

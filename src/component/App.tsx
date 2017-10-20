@@ -6,6 +6,11 @@
     *   The entire application component.
     *   This is an example for a stateful component.
     *
+    *   TODO ASAP Add redux as typescript.
+    *   TODO ASAP Connect redux in tsx components.
+    *   TODO ASAP Add visibility modifiers to all methods.
+    *   TODO ASAP Fix all doc blocks.
+    *
     *   @author  Christopher Stock
     *   @version 1.0
     *******************************************************************************************************************/

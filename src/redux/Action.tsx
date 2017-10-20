@@ -1,13 +1,4 @@
 
-    const ACTION_CREATE_TASK       = 'ACTION_CREATE_TASK';
-    const ACTION_DELETE_TASK       = 'ACTION_DELETE_TASK';
-    const ACTION_MOVE_TASK_UP      = 'ACTION_MOVE_TASK_UP';
-    const ACTION_MOVE_TASK_DOWN    = 'ACTION_MOVE_TASK_DOWN';
-    const ACTION_SET_INPUT_FIELD   = 'ACTION_SET_INPUT_FIELD';
-    const ACTION_CLEAR_INPUT_FIELD = 'ACTION_CLEAR_INPUT_FIELD';
-    const ACTION_SET_INPUT_ERROR   = 'ACTION_SET_INPUT_ERROR';
-    const ACTION_CLEAR_INPUT_ERROR = 'ACTION_CLEAR_INPUT_ERROR';
-
     /*******************************************************************************************************************
     *   Specifies all redux action creators.
     *
@@ -16,6 +7,15 @@
     *******************************************************************************************************************/
     export class Action
     {
+        public  static  readonly    ACTION_CREATE_TASK       = 'ACTION_CREATE_TASK';
+        public  static  readonly    ACTION_DELETE_TASK       = 'ACTION_DELETE_TASK';
+        public  static  readonly    ACTION_MOVE_TASK_UP      = 'ACTION_MOVE_TASK_UP';
+        public  static  readonly    ACTION_MOVE_TASK_DOWN    = 'ACTION_MOVE_TASK_DOWN';
+        public  static  readonly    ACTION_SET_INPUT_FIELD   = 'ACTION_SET_INPUT_FIELD';
+        public  static  readonly    ACTION_CLEAR_INPUT_FIELD = 'ACTION_CLEAR_INPUT_FIELD';
+        public  static  readonly    ACTION_SET_INPUT_ERROR   = 'ACTION_SET_INPUT_ERROR';
+        public  static  readonly    ACTION_CLEAR_INPUT_ERROR = 'ACTION_CLEAR_INPUT_ERROR';
+
         /***************************************************************************************************************
         *   Specifies the redux action 'create task'.
         *
@@ -23,10 +23,10 @@
         *
         *   @return {Object} The action object for creating a task.
         ***************************************************************************************************************/
-        static createTaskAction( taskName  )
+        static createTaskAction( taskName:string ) : any
         {
             return {
-                type:     ACTION_CREATE_TASK,
+                type:     Action.ACTION_CREATE_TASK,
                 taskName: taskName,
             }
         }
@@ -38,10 +38,10 @@
         *
         *   @return {Object} The action object for deleting a task.
         ***************************************************************************************************************/
-        static deleteTaskAction( taskIndex )
+        static deleteTaskAction( taskIndex:number ) : any
         {
             return {
-                type:      ACTION_DELETE_TASK,
+                type:      Action.ACTION_DELETE_TASK,
                 taskIndex: taskIndex,
             }
         }
@@ -53,10 +53,10 @@
         *
         *   @return {Object} The action object for moving a task up.
         ***************************************************************************************************************/
-        static moveTaskUpAction( taskIndex )
+        static moveTaskUpAction( taskIndex:number ) : any
         {
             return {
-                type:      ACTION_MOVE_TASK_UP,
+                type:      Action.ACTION_MOVE_TASK_UP,
                 taskIndex: taskIndex,
             }
         }
@@ -68,10 +68,10 @@
         *
         *   @return {Object} The action object for moving a task down.
         ***************************************************************************************************************/
-        static moveTaskDownAction( taskIndex )
+        static moveTaskDownAction( taskIndex:number ) : any
         {
             return {
-                type:      ACTION_MOVE_TASK_DOWN,
+                type:      Action.ACTION_MOVE_TASK_DOWN,
                 taskIndex: taskIndex,
             }
         }
@@ -83,10 +83,10 @@
         *
         *   @return {Object} The action object for setting the input field.
         ***************************************************************************************************************/
-        static setInputFieldAction( inputText )
+        static setInputFieldAction( inputText:string ) : any
         {
             return {
-                type:      ACTION_SET_INPUT_FIELD,
+                type:      Action.ACTION_SET_INPUT_FIELD,
                 inputText: inputText,
             }
         }
@@ -96,10 +96,10 @@
         *
         *   @return {Object} The action object for clearing the input field.
         ***************************************************************************************************************/
-        static clearInputFieldAction()
+        static clearInputFieldAction() : any
         {
             return {
-                type: ACTION_CLEAR_INPUT_FIELD,
+                type: Action.ACTION_CLEAR_INPUT_FIELD,
             }
         }
 
@@ -108,10 +108,10 @@
         *
         *   @return {Object} The action object for setting the input error.
         ***************************************************************************************************************/
-        static setInputErrorAction()
+        static setInputErrorAction() : any
         {
             return {
-                type: ACTION_SET_INPUT_ERROR,
+                type: Action.ACTION_SET_INPUT_ERROR,
             }
         }
 
@@ -120,10 +120,10 @@
         *
         *   @return {Object} The action object for clearing the input error.
         ***************************************************************************************************************/
-        static clearInputErrorAction()
+        static clearInputErrorAction() : any
         {
             return {
-                type: ACTION_CLEAR_INPUT_ERROR,
+                type: Action.ACTION_CLEAR_INPUT_ERROR,
             }
         }
     }

@@ -1,4 +1,6 @@
 
+    import * as tl from '../tl';
+
     /*******************************************************************************************************************
     *   Specifies all redux reducers.
     *
@@ -15,7 +17,7 @@
         *
         *   @return {Object} The new state object.
         ***************************************************************************************************************/
-        static taskListReducer( state = Reducer.createDefaultState() , action )
+        static taskListReducer( state = Reducer.createDefaultState() , action:any ) : any
         {
             console.log( "taskListReducer reduces action [", action, "] State BEFORE is [", state, "]" );
 
@@ -23,49 +25,49 @@
 
             switch ( action.type )
             {
-                case ACTION_CREATE_TASK:
+                case tl.Action.ACTION_CREATE_TASK:
                 {
                     newState = Reducer.createTaskReducer( state, action );
                     break;
                 }
 
-                case ACTION_DELETE_TASK:
+                case tl.Action.ACTION_DELETE_TASK:
                 {
                     newState = Reducer.deleteTaskReducer( state, action );
                     break;
                 }
 
-                case ACTION_MOVE_TASK_UP:
+                case tl.Action.ACTION_MOVE_TASK_UP:
                 {
                     newState = Reducer.moveTaskUpReducer( state, action );
                     break;
                 }
 
-                case ACTION_MOVE_TASK_DOWN:
+                case tl.Action.ACTION_MOVE_TASK_DOWN:
                 {
                     newState = Reducer.moveTaskDownReducer( state, action );
                     break;
                 }
 
-                case ACTION_SET_INPUT_FIELD:
+                case tl.Action.ACTION_SET_INPUT_FIELD:
                 {
                     newState = Reducer.setInputFieldReducer( state, action );
                     break;
                 }
 
-                case ACTION_CLEAR_INPUT_FIELD:
+                case tl.Action.ACTION_CLEAR_INPUT_FIELD:
                 {
                     newState = Reducer.clearInputFieldReducer( state );
                     break;
                 }
 
-                case ACTION_SET_INPUT_ERROR:
+                case tl.Action.ACTION_SET_INPUT_ERROR:
                 {
                     newState = Reducer.setInputErrorReducer( state );
                     break;
                 }
 
-                case ACTION_CLEAR_INPUT_ERROR:
+                case tl.Action.ACTION_CLEAR_INPUT_ERROR:
                 {
                     newState = Reducer.clearInputErrorReducer( state );
                     break;
@@ -91,7 +93,7 @@
         *
         *   @return {Object} The new and reduced state object.
         ***************************************************************************************************************/
-        static createTaskReducer( state, action )
+        static createTaskReducer( state:any, action:any ) : any
         {
             let newTasks = state.taskList.slice();
             newTasks.push( action.taskName );
@@ -111,7 +113,7 @@
         *
         *   @return {Object} The new and reduced state object.
         ***************************************************************************************************************/
-        static deleteTaskReducer( state, action )
+        static deleteTaskReducer( state:any, action:any ) : any
         {
             let newTasks = state.taskList.slice();
             newTasks.splice( action.taskIndex, 1 );
@@ -131,7 +133,7 @@
         *
         *   @return {Object} The new and reduced state object.
         ***************************************************************************************************************/
-        static moveTaskUpReducer( state, action )
+        static moveTaskUpReducer( state:any, action:any ) : any
         {
             let newTasks       = state.taskList.slice();
             let taskToMoveUp   = newTasks[ action.taskIndex     ];
@@ -155,7 +157,7 @@
         *
         *   @return {Object} The new and reduced state object.
         ***************************************************************************************************************/
-        static moveTaskDownReducer( state, action )
+        static moveTaskDownReducer( state:any, action:any ) : any
         {
             let newTasks       = state.taskList.slice();
             let taskToMoveUp   = newTasks[ action.taskIndex + 1 ];
@@ -179,7 +181,7 @@
         *
         *   @return {Object} The new and reduced state object.
         ***************************************************************************************************************/
-        static setInputFieldReducer( state, action )
+        static setInputFieldReducer( state:any, action:any ) : any
         {
             return {
                 taskList:   state.taskList,
@@ -195,7 +197,7 @@
         *
         *   @return {Object} The new and reduced state object.
         ***************************************************************************************************************/
-        static clearInputFieldReducer( state )
+        static clearInputFieldReducer( state:any ) : any
         {
             return {
                 taskList:   state.taskList,
@@ -211,7 +213,7 @@
         *
         *   @return {Object} The new and reduced state object.
         ***************************************************************************************************************/
-        static setInputErrorReducer( state )
+        static setInputErrorReducer( state:any ) : any
         {
             return {
                 taskList:   state.taskList,
@@ -227,7 +229,7 @@
         *
         *   @return {Object} The new and reduced state object.
         ***************************************************************************************************************/
-        static clearInputErrorReducer( state )
+        static clearInputErrorReducer( state:any ) : any
         {
             return {
                 taskList:   state.taskList,
@@ -241,7 +243,7 @@
         *
         *   @return {Object} The initially constructed state object.
         ***************************************************************************************************************/
-        static createDefaultState()
+        static createDefaultState() : any
         {
             return {
                 taskList:   [],
