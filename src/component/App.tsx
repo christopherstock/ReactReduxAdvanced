@@ -6,9 +6,6 @@
     *   The entire application component.
     *   This is an example for a stateful component.
     *
-    *   TODO ASAP Alter all :any types to discreet classes.
-    *   TODO ASAP Outsource connectors from App.render!
-    *
     *   @author  Christopher Stock
     *   @version 1.0
     *******************************************************************************************************************/
@@ -23,6 +20,7 @@
         {
             console.log( "App.render() being invoked" );
 
+            // this method is only being passed once in the applications lifecycle!
             const TaskInput:any = tl.Connector.connectTaskInput();
             const TaskList:any  = tl.Connector.connectTaskList();
 
