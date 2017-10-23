@@ -12,9 +12,9 @@ var Action = /** @class */ (function () {
     /***************************************************************************************************************
     *   Specifies the redux action 'create task'.
     *
-    *   @param {string} taskName The name of the task to create.
+    *   @param taskName The name of the task to create.
     *
-    *   @return {Object} The action object for creating a task.
+    *   @return The action object for creating a task.
     ***************************************************************************************************************/
     Action.createTaskAction = function (taskName) {
         return {
@@ -25,9 +25,9 @@ var Action = /** @class */ (function () {
     /***************************************************************************************************************
     *   Specifies the redux action 'delete task'.
     *
-    *   @param {number} taskIndex The index of the task to delete.
+    *   @param taskIndex The index of the task to delete.
     *
-    *   @return {Object} The action object for deleting a task.
+    *   @return The action object for deleting a task.
     ***************************************************************************************************************/
     Action.deleteTaskAction = function (taskIndex) {
         return {
@@ -38,9 +38,9 @@ var Action = /** @class */ (function () {
     /***************************************************************************************************************
     *   Specifies the redux action 'move task up'.
     *
-    *   @param {number} taskIndex The index of the task to move up.
+    *   @param taskIndex The index of the task to move up.
     *
-    *   @return {Object} The action object for moving a task up.
+    *   @return The action object for moving a task up.
     ***************************************************************************************************************/
     Action.moveTaskUpAction = function (taskIndex) {
         return {
@@ -51,9 +51,9 @@ var Action = /** @class */ (function () {
     /***************************************************************************************************************
     *   Specifies the redux action 'move task down'.
     *
-    *   @param {number} taskIndex The index of the task to move down.
+    *   @param taskIndex The index of the task to move down.
     *
-    *   @return {Object} The action object for moving a task down.
+    *   @return The action object for moving a task down.
     ***************************************************************************************************************/
     Action.moveTaskDownAction = function (taskIndex) {
         return {
@@ -64,9 +64,9 @@ var Action = /** @class */ (function () {
     /***************************************************************************************************************
     *   Specifies the redux action 'set input field'.
     *
-    *   @param {string} inputText The text to set into the input field.
+    *   @param inputText The text to set into the input field.
     *
-    *   @return {Object} The action object for setting the input field.
+    *   @return The action object for setting the input field.
     ***************************************************************************************************************/
     Action.setInputFieldAction = function (inputText) {
         return {
@@ -77,7 +77,7 @@ var Action = /** @class */ (function () {
     /***************************************************************************************************************
     *   Specifies the redux action 'clear input field'.
     *
-    *   @return {Object} The action object for clearing the input field.
+    *   @return The action object for clearing the input field.
     ***************************************************************************************************************/
     Action.clearInputFieldAction = function () {
         return {
@@ -87,7 +87,7 @@ var Action = /** @class */ (function () {
     /***************************************************************************************************************
     *   Specifies the redux action 'set input error'.
     *
-    *   @return {Object} The action object for setting the input error.
+    *   @return The action object for setting the input error.
     ***************************************************************************************************************/
     Action.setInputErrorAction = function () {
         return {
@@ -97,7 +97,7 @@ var Action = /** @class */ (function () {
     /***************************************************************************************************************
     *   Specifies the redux action 'clear input error'.
     *
-    *   @return {Object} The action object for clearing the input error.
+    *   @return The action object for clearing the input error.
     ***************************************************************************************************************/
     Action.clearInputErrorAction = function () {
         return {

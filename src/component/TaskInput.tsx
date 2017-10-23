@@ -1,6 +1,6 @@
 
-    import * as React      from 'react';
-    import * as tl         from '../tl';
+    import * as React from 'react';
+    import * as tl    from '../tl';
 
     /*******************************************************************************************************************
     *   Represents the input component that lets the user create new tasks.

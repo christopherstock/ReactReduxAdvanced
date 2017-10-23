@@ -16,9 +16,8 @@ var tl = require("../tl");
 *   The entire application component.
 *   This is an example for a stateful component.
 *
-*   TODO ASAP Add visibility modifiers to all methods.
-*   TODO ASAP Fix all doc blocks.
 *   TODO ASAP Alter all :any types to discreet classes.
+*   TODO ASAP Outsource connectors from App.render!
 *
 *   @author  Christopher Stock
 *   @version 1.0
@@ -35,7 +34,6 @@ var App = /** @class */ (function (_super) {
     ***************************************************************************************************************/
     App.prototype.render = function () {
         console.log("App.render() being invoked");
-        // TODO outsource!
         var TaskInput = tl.Connector.connectTaskInput();
         var TaskList = tl.Connector.connectTaskList();
         return React.createElement("div", null,

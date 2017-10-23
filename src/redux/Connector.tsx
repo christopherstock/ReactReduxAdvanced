@@ -13,9 +13,9 @@
         /***************************************************************************************************************
         *   Connects the react component 'TaskList' with redux and returns the connected instance.
         *
-        *   @return {Object} The connected react component.
+        *   @return The connected react component.
         ***************************************************************************************************************/
-        public static connectTaskList()
+        public static connectTaskList() : any
         {
             const mapStateToProps:any = ( state:any ) => {
                 return {
@@ -40,9 +40,9 @@
         /***************************************************************************************************************
         *   Connects the react component 'TaskInput' with redux and returns the connected instance.
         *
-        *   @return {Object} The connected react component.
+        *   @return The connected react component.
         ***************************************************************************************************************/
-        public static connectTaskInput()
+        public static connectTaskInput() : any
         {
             const mapStateToProps:any = ( state:any ) => {
                 return {

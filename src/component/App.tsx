@@ -1,14 +1,13 @@
 
-    import * as React    from 'react';
-    import * as tl       from '../tl';
+    import * as React from 'react';
+    import * as tl    from '../tl';
 
     /*******************************************************************************************************************
     *   The entire application component.
     *   This is an example for a stateful component.
     *
-    *   TODO ASAP Add visibility modifiers to all methods.
-    *   TODO ASAP Fix all doc blocks.
     *   TODO ASAP Alter all :any types to discreet classes.
+    *   TODO ASAP Outsource connectors from App.render!
     *
     *   @author  Christopher Stock
     *   @version 1.0
@@ -24,7 +23,6 @@
         {
             console.log( "App.render() being invoked" );
 
-            // TODO outsource!
             const TaskInput:any = tl.Connector.connectTaskInput();
             const TaskList:any  = tl.Connector.connectTaskList();
 

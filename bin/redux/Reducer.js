@@ -13,10 +13,10 @@ var Reducer = /** @class */ (function () {
     /***************************************************************************************************************
     *   Specifies the global reducer method for the entire TaskList application.
     *
-    *   @param {Object} state  The existing state object.
-    *   @param {Object} action The action to perform on the state object.
+    *   @param state  The existing state object.
+    *   @param action The action to perform on the state object.
     *
-    *   @return {Object} The new state object.
+    *   @return The new state object.
     ***************************************************************************************************************/
     Reducer.taskListReducer = function (state, action) {
         if (state === void 0) { state = Reducer.createDefaultState(); }
@@ -75,10 +75,10 @@ var Reducer = /** @class */ (function () {
     /***************************************************************************************************************
     *   Reduces the state in order to create a new task.
     *
-    *   @param {Object} state  The existing state object.
-    *   @param {Object} action The action to perform on the state object.
+    *   @param state  The existing state object.
+    *   @param action The action to perform on the state object.
     *
-    *   @return {Object} The new and reduced state object.
+    *   @return The new and reduced state object.
     ***************************************************************************************************************/
     Reducer.createTaskReducer = function (state, action) {
         var newTasks = state.taskList.slice();
@@ -92,10 +92,10 @@ var Reducer = /** @class */ (function () {
     /***************************************************************************************************************
     *   Reduces the state in order to delete a new task.
     *
-    *   @param {Object} state  The existing state object.
-    *   @param {Object} action The action to perform on the state object.
+    *   @param state  The existing state object.
+    *   @param action The action to perform on the state object.
     *
-    *   @return {Object} The new and reduced state object.
+    *   @return The new and reduced state object.
     ***************************************************************************************************************/
     Reducer.deleteTaskReducer = function (state, action) {
         var newTasks = state.taskList.slice();
@@ -109,10 +109,10 @@ var Reducer = /** @class */ (function () {
     /***************************************************************************************************************
     *   Reduces the state in order to move a task up.
     *
-    *   @param {Object} state  The existing state object.
-    *   @param {Object} action The action to perform on the state object.
+    *   @param state  The existing state object.
+    *   @param action The action to perform on the state object.
     *
-    *   @return {Object} The new and reduced state object.
+    *   @return The new and reduced state object.
     ***************************************************************************************************************/
     Reducer.moveTaskUpReducer = function (state, action) {
         var newTasks = state.taskList.slice();
@@ -129,10 +129,10 @@ var Reducer = /** @class */ (function () {
     /***************************************************************************************************************
     *   Reduces the state in order to move a task down.
     *
-    *   @param {Object} state  The existing state object.
-    *   @param {Object} action The action to perform on the state object.
+    *   @param state  The existing state object.
+    *   @param action The action to perform on the state object.
     *
-    *   @return {Object} The new and reduced state object.
+    *   @return The new and reduced state object.
     ***************************************************************************************************************/
     Reducer.moveTaskDownReducer = function (state, action) {
         var newTasks = state.taskList.slice();
@@ -149,10 +149,10 @@ var Reducer = /** @class */ (function () {
     /***************************************************************************************************************
     *   Reduces the state in order to set a text for the input field.
     *
-    *   @param {Object} state  The existing state object.
-    *   @param {Object} action The action to perform on the state object.
+    *   @param state  The existing state object.
+    *   @param action The action to perform on the state object.
     *
-    *   @return {Object} The new and reduced state object.
+    *   @return The new and reduced state object.
     ***************************************************************************************************************/
     Reducer.setInputFieldReducer = function (state, action) {
         return {
@@ -164,9 +164,9 @@ var Reducer = /** @class */ (function () {
     /***************************************************************************************************************
     *   Reduces the state in order to clear the text in the input field.
     *
-    *   @param {Object} state The existing state object.
+    *   @param state The existing state object.
     *
-    *   @return {Object} The new and reduced state object.
+    *   @return The new and reduced state object.
     ***************************************************************************************************************/
     Reducer.clearInputFieldReducer = function (state) {
         return {
@@ -178,9 +178,9 @@ var Reducer = /** @class */ (function () {
     /***************************************************************************************************************
     *   Reduces the state in order to set the input error for the input field.
     *
-    *   @param {Object} state The existing state object.
+    *   @param state The existing state object.
     *
-    *   @return {Object} The new and reduced state object.
+    *   @return The new and reduced state object.
     ***************************************************************************************************************/
     Reducer.setInputErrorReducer = function (state) {
         return {
@@ -192,9 +192,9 @@ var Reducer = /** @class */ (function () {
     /***************************************************************************************************************
     *   Reduces the state in order to clear the input error for the input field.
     *
-    *   @param {Object} state The existing state object.
+    *   @param state The existing state object.
     *
-    *   @return {Object} The new and reduced state object.
+    *   @return The new and reduced state object.
     ***************************************************************************************************************/
     Reducer.clearInputErrorReducer = function (state) {
         return {
@@ -206,7 +206,7 @@ var Reducer = /** @class */ (function () {
     /***************************************************************************************************************
     *   Creates and returns the default state.
     *
-    *   @return {Object} The initially constructed state object.
+    *   @return The initially constructed state object.
     ***************************************************************************************************************/
     Reducer.createDefaultState = function () {
         return {

@@ -14,7 +14,7 @@ var Connector = /** @class */ (function () {
     /***************************************************************************************************************
     *   Connects the react component 'TaskList' with redux and returns the connected instance.
     *
-    *   @return {Object} The connected react component.
+    *   @return The connected react component.
     ***************************************************************************************************************/
     Connector.connectTaskList = function () {
         var mapStateToProps = function (state) {
@@ -34,7 +34,7 @@ var Connector = /** @class */ (function () {
     /***************************************************************************************************************
     *   Connects the react component 'TaskInput' with redux and returns the connected instance.
     *
-    *   @return {Object} The connected react component.
+    *   @return The connected react component.
     ***************************************************************************************************************/
     Connector.connectTaskInput = function () {
         var mapStateToProps = function (state) {

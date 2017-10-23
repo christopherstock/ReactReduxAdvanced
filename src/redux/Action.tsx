@@ -19,9 +19,9 @@
         /***************************************************************************************************************
         *   Specifies the redux action 'create task'.
         *
-        *   @param {string} taskName The name of the task to create.
+        *   @param taskName The name of the task to create.
         *
-        *   @return {Object} The action object for creating a task.
+        *   @return The action object for creating a task.
         ***************************************************************************************************************/
         public static createTaskAction( taskName:string ) : any
         {
@@ -34,9 +34,9 @@
         /***************************************************************************************************************
         *   Specifies the redux action 'delete task'.
         *
-        *   @param {number} taskIndex The index of the task to delete.
+        *   @param taskIndex The index of the task to delete.
         *
-        *   @return {Object} The action object for deleting a task.
+        *   @return The action object for deleting a task.
         ***************************************************************************************************************/
         public static deleteTaskAction( taskIndex:number ) : any
         {
@@ -49,9 +49,9 @@
         /***************************************************************************************************************
         *   Specifies the redux action 'move task up'.
         *
-        *   @param {number} taskIndex The index of the task to move up.
+        *   @param taskIndex The index of the task to move up.
         *
-        *   @return {Object} The action object for moving a task up.
+        *   @return The action object for moving a task up.
         ***************************************************************************************************************/
         public static moveTaskUpAction( taskIndex:number ) : any
         {
@@ -64,9 +64,9 @@
         /***************************************************************************************************************
         *   Specifies the redux action 'move task down'.
         *
-        *   @param {number} taskIndex The index of the task to move down.
+        *   @param taskIndex The index of the task to move down.
         *
-        *   @return {Object} The action object for moving a task down.
+        *   @return The action object for moving a task down.
         ***************************************************************************************************************/
         public static moveTaskDownAction( taskIndex:number ) : any
         {
@@ -79,9 +79,9 @@
         /***************************************************************************************************************
         *   Specifies the redux action 'set input field'.
         *
-        *   @param {string} inputText The text to set into the input field.
+        *   @param inputText The text to set into the input field.
         *
-        *   @return {Object} The action object for setting the input field.
+        *   @return The action object for setting the input field.
         ***************************************************************************************************************/
         public static setInputFieldAction( inputText:string ) : any
         {
@@ -94,7 +94,7 @@
         /***************************************************************************************************************
         *   Specifies the redux action 'clear input field'.
         *
-        *   @return {Object} The action object for clearing the input field.
+        *   @return The action object for clearing the input field.
         ***************************************************************************************************************/
         public static clearInputFieldAction() : any
         {
@@ -106,7 +106,7 @@
         /***************************************************************************************************************
         *   Specifies the redux action 'set input error'.
         *
-        *   @return {Object} The action object for setting the input error.
+        *   @return The action object for setting the input error.
         ***************************************************************************************************************/
         public static setInputErrorAction() : any
         {
@@ -118,7 +118,7 @@
         /***************************************************************************************************************
         *   Specifies the redux action 'clear input error'.
         *
-        *   @return {Object} The action object for clearing the input error.
+        *   @return The action object for clearing the input error.
         ***************************************************************************************************************/
         public static clearInputErrorAction() : any
         {

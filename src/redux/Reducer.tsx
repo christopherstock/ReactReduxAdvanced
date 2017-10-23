@@ -12,10 +12,10 @@
         /***************************************************************************************************************
         *   Specifies the global reducer method for the entire TaskList application.
         *
-        *   @param {Object} state  The existing state object.
-        *   @param {Object} action The action to perform on the state object.
+        *   @param state  The existing state object.
+        *   @param action The action to perform on the state object.
         *
-        *   @return {Object} The new state object.
+        *   @return The new state object.
         ***************************************************************************************************************/
         public static taskListReducer( state = Reducer.createDefaultState() , action:any ) : any
         {
@@ -88,10 +88,10 @@
         /***************************************************************************************************************
         *   Reduces the state in order to create a new task.
         *
-        *   @param {Object} state  The existing state object.
-        *   @param {Object} action The action to perform on the state object.
+        *   @param state  The existing state object.
+        *   @param action The action to perform on the state object.
         *
-        *   @return {Object} The new and reduced state object.
+        *   @return The new and reduced state object.
         ***************************************************************************************************************/
         private static createTaskReducer( state:any, action:any ) : any
         {
@@ -108,10 +108,10 @@
         /***************************************************************************************************************
         *   Reduces the state in order to delete a new task.
         *
-        *   @param {Object} state  The existing state object.
-        *   @param {Object} action The action to perform on the state object.
+        *   @param state  The existing state object.
+        *   @param action The action to perform on the state object.
         *
-        *   @return {Object} The new and reduced state object.
+        *   @return The new and reduced state object.
         ***************************************************************************************************************/
         private static deleteTaskReducer( state:any, action:any ) : any
         {
@@ -128,10 +128,10 @@
         /***************************************************************************************************************
         *   Reduces the state in order to move a task up.
         *
-        *   @param {Object} state  The existing state object.
-        *   @param {Object} action The action to perform on the state object.
+        *   @param state  The existing state object.
+        *   @param action The action to perform on the state object.
         *
-        *   @return {Object} The new and reduced state object.
+        *   @return The new and reduced state object.
         ***************************************************************************************************************/
         private static moveTaskUpReducer( state:any, action:any ) : any
         {
@@ -152,10 +152,10 @@
         /***************************************************************************************************************
         *   Reduces the state in order to move a task down.
         *
-        *   @param {Object} state  The existing state object.
-        *   @param {Object} action The action to perform on the state object.
+        *   @param state  The existing state object.
+        *   @param action The action to perform on the state object.
         *
-        *   @return {Object} The new and reduced state object.
+        *   @return The new and reduced state object.
         ***************************************************************************************************************/
         private static moveTaskDownReducer( state:any, action:any ) : any
         {
@@ -176,10 +176,10 @@
         /***************************************************************************************************************
         *   Reduces the state in order to set a text for the input field.
         *
-        *   @param {Object} state  The existing state object.
-        *   @param {Object} action The action to perform on the state object.
+        *   @param state  The existing state object.
+        *   @param action The action to perform on the state object.
         *
-        *   @return {Object} The new and reduced state object.
+        *   @return The new and reduced state object.
         ***************************************************************************************************************/
         private static setInputFieldReducer( state:any, action:any ) : any
         {
@@ -193,9 +193,9 @@
         /***************************************************************************************************************
         *   Reduces the state in order to clear the text in the input field.
         *
-        *   @param {Object} state The existing state object.
+        *   @param state The existing state object.
         *
-        *   @return {Object} The new and reduced state object.
+        *   @return The new and reduced state object.
         ***************************************************************************************************************/
         private static clearInputFieldReducer( state:any ) : any
         {
@@ -209,9 +209,9 @@
         /***************************************************************************************************************
         *   Reduces the state in order to set the input error for the input field.
         *
-        *   @param {Object} state The existing state object.
+        *   @param state The existing state object.
         *
-        *   @return {Object} The new and reduced state object.
+        *   @return The new and reduced state object.
         ***************************************************************************************************************/
         private static setInputErrorReducer( state:any ) : any
         {
@@ -225,9 +225,9 @@
         /***************************************************************************************************************
         *   Reduces the state in order to clear the input error for the input field.
         *
-        *   @param {Object} state The existing state object.
+        *   @param state The existing state object.
         *
-        *   @return {Object} The new and reduced state object.
+        *   @return The new and reduced state object.
         ***************************************************************************************************************/
         private static clearInputErrorReducer( state:any ) : any
         {
@@ -241,7 +241,7 @@
         /***************************************************************************************************************
         *   Creates and returns the default state.
         *
-        *   @return {Object} The initially constructed state object.
+        *   @return The initially constructed state object.
         ***************************************************************************************************************/
         private static createDefaultState() : any
         {
