@@ -7,14 +7,14 @@
     *******************************************************************************************************************/
     export class Action
     {
-        public  static  readonly    ACTION_CREATE_TASK       = 'ACTION_CREATE_TASK';
-        public  static  readonly    ACTION_DELETE_TASK       = 'ACTION_DELETE_TASK';
-        public  static  readonly    ACTION_MOVE_TASK_UP      = 'ACTION_MOVE_TASK_UP';
-        public  static  readonly    ACTION_MOVE_TASK_DOWN    = 'ACTION_MOVE_TASK_DOWN';
-        public  static  readonly    ACTION_SET_INPUT_FIELD   = 'ACTION_SET_INPUT_FIELD';
-        public  static  readonly    ACTION_CLEAR_INPUT_FIELD = 'ACTION_CLEAR_INPUT_FIELD';
-        public  static  readonly    ACTION_SET_INPUT_ERROR   = 'ACTION_SET_INPUT_ERROR';
-        public  static  readonly    ACTION_CLEAR_INPUT_ERROR = 'ACTION_CLEAR_INPUT_ERROR';
+        public  static  readonly    ACTION_CREATE_TASK          :string         = 'ACTION_CREATE_TASK';
+        public  static  readonly    ACTION_DELETE_TASK          :string         = 'ACTION_DELETE_TASK';
+        public  static  readonly    ACTION_MOVE_TASK_UP         :string         = 'ACTION_MOVE_TASK_UP';
+        public  static  readonly    ACTION_MOVE_TASK_DOWN       :string         = 'ACTION_MOVE_TASK_DOWN';
+        public  static  readonly    ACTION_SET_INPUT_FIELD      :string         = 'ACTION_SET_INPUT_FIELD';
+        public  static  readonly    ACTION_CLEAR_INPUT_FIELD    :string         = 'ACTION_CLEAR_INPUT_FIELD';
+        public  static  readonly    ACTION_SET_INPUT_ERROR      :string         = 'ACTION_SET_INPUT_ERROR';
+        public  static  readonly    ACTION_CLEAR_INPUT_ERROR    :string         = 'ACTION_CLEAR_INPUT_ERROR';
 
         /***************************************************************************************************************
         *   Specifies the redux action 'create task'.

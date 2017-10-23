@@ -23468,8 +23468,7 @@ var tl = __webpack_require__(7);
 *   This is an example for a stateful component.
 *
 *   TODO ASAP Alter all :any types to discreet classes.
-*   TODO ASAP Add visibility modifiers to all methods.
-*   TODO ASAP Fix all doc blocks.
+*   TODO ASAP Outsource connectors from App.render!
 *
 *   @author  Christopher Stock
 *   @version 1.0
@@ -23486,7 +23485,6 @@ var App = /** @class */ (function (_super) {
     ***************************************************************************************************************/
     App.prototype.render = function () {
         console.log("App.render() being invoked");
-        // TODO outsource!
         var TaskInput = tl.Connector.connectTaskInput();
         var TaskList = tl.Connector.connectTaskList();
         return React.createElement("div", null,
@@ -23673,9 +23671,9 @@ var Action = /** @class */ (function () {
     /***************************************************************************************************************
     *   Specifies the redux action 'create task'.
     *
-    *   @param {string} taskName The name of the task to create.
+    *   @param taskName The name of the task to create.
     *
-    *   @return {Object} The action object for creating a task.
+    *   @return The action object for creating a task.
     ***************************************************************************************************************/
     Action.createTaskAction = function (taskName) {
         return {
@@ -23686,9 +23684,9 @@ var Action = /** @class */ (function () {
     /***************************************************************************************************************
     *   Specifies the redux action 'delete task'.
     *
-    *   @param {number} taskIndex The index of the task to delete.
+    *   @param taskIndex The index of the task to delete.
     *
-    *   @return {Object} The action object for deleting a task.
+    *   @return The action object for deleting a task.
     ***************************************************************************************************************/
     Action.deleteTaskAction = function (taskIndex) {
         return {
@@ -23699,9 +23697,9 @@ var Action = /** @class */ (function () {
     /***************************************************************************************************************
     *   Specifies the redux action 'move task up'.
     *
-    *   @param {number} taskIndex The index of the task to move up.
+    *   @param taskIndex The index of the task to move up.
     *
-    *   @return {Object} The action object for moving a task up.
+    *   @return The action object for moving a task up.
     ***************************************************************************************************************/
     Action.moveTaskUpAction = function (taskIndex) {
         return {
@@ -23712,9 +23710,9 @@ var Action = /** @class */ (function () {
     /***************************************************************************************************************
     *   Specifies the redux action 'move task down'.
     *
-    *   @param {number} taskIndex The index of the task to move down.
+    *   @param taskIndex The index of the task to move down.
     *
-    *   @return {Object} The action object for moving a task down.
+    *   @return The action object for moving a task down.
     ***************************************************************************************************************/
     Action.moveTaskDownAction = function (taskIndex) {
         return {
@@ -23725,9 +23723,9 @@ var Action = /** @class */ (function () {
     /***************************************************************************************************************
     *   Specifies the redux action 'set input field'.
     *
-    *   @param {string} inputText The text to set into the input field.
+    *   @param inputText The text to set into the input field.
     *
-    *   @return {Object} The action object for setting the input field.
+    *   @return The action object for setting the input field.
     ***************************************************************************************************************/
     Action.setInputFieldAction = function (inputText) {
         return {
@@ -23738,7 +23736,7 @@ var Action = /** @class */ (function () {
     /***************************************************************************************************************
     *   Specifies the redux action 'clear input field'.
     *
-    *   @return {Object} The action object for clearing the input field.
+    *   @return The action object for clearing the input field.
     ***************************************************************************************************************/
     Action.clearInputFieldAction = function () {
         return {
@@ -23748,7 +23746,7 @@ var Action = /** @class */ (function () {
     /***************************************************************************************************************
     *   Specifies the redux action 'set input error'.
     *
-    *   @return {Object} The action object for setting the input error.
+    *   @return The action object for setting the input error.
     ***************************************************************************************************************/
     Action.setInputErrorAction = function () {
         return {
@@ -23758,7 +23756,7 @@ var Action = /** @class */ (function () {
     /***************************************************************************************************************
     *   Specifies the redux action 'clear input error'.
     *
-    *   @return {Object} The action object for clearing the input error.
+    *   @return The action object for clearing the input error.
     ***************************************************************************************************************/
     Action.clearInputErrorAction = function () {
         return {
@@ -23799,7 +23797,7 @@ var Connector = /** @class */ (function () {
     /***************************************************************************************************************
     *   Connects the react component 'TaskList' with redux and returns the connected instance.
     *
-    *   @return {Object} The connected react component.
+    *   @return The connected react component.
     ***************************************************************************************************************/
     Connector.connectTaskList = function () {
         var mapStateToProps = function (state) {
@@ -23819,7 +23817,7 @@ var Connector = /** @class */ (function () {
     /***************************************************************************************************************
     *   Connects the react component 'TaskInput' with redux and returns the connected instance.
     *
-    *   @return {Object} The connected react component.
+    *   @return The connected react component.
     ***************************************************************************************************************/
     Connector.connectTaskInput = function () {
         var mapStateToProps = function (state) {
@@ -23864,10 +23862,10 @@ var Reducer = /** @class */ (function () {
     /***************************************************************************************************************
     *   Specifies the global reducer method for the entire TaskList application.
     *
-    *   @param {Object} state  The existing state object.
-    *   @param {Object} action The action to perform on the state object.
+    *   @param state  The existing state object.
+    *   @param action The action to perform on the state object.
     *
-    *   @return {Object} The new state object.
+    *   @return The new state object.
     ***************************************************************************************************************/
     Reducer.taskListReducer = function (state, action) {
         if (state === void 0) { state = Reducer.createDefaultState(); }
@@ -23926,10 +23924,10 @@ var Reducer = /** @class */ (function () {
     /***************************************************************************************************************
     *   Reduces the state in order to create a new task.
     *
-    *   @param {Object} state  The existing state object.
-    *   @param {Object} action The action to perform on the state object.
+    *   @param state  The existing state object.
+    *   @param action The action to perform on the state object.
     *
-    *   @return {Object} The new and reduced state object.
+    *   @return The new and reduced state object.
     ***************************************************************************************************************/
     Reducer.createTaskReducer = function (state, action) {
         var newTasks = state.taskList.slice();
@@ -23943,10 +23941,10 @@ var Reducer = /** @class */ (function () {
     /***************************************************************************************************************
     *   Reduces the state in order to delete a new task.
     *
-    *   @param {Object} state  The existing state object.
-    *   @param {Object} action The action to perform on the state object.
+    *   @param state  The existing state object.
+    *   @param action The action to perform on the state object.
     *
-    *   @return {Object} The new and reduced state object.
+    *   @return The new and reduced state object.
     ***************************************************************************************************************/
     Reducer.deleteTaskReducer = function (state, action) {
         var newTasks = state.taskList.slice();
@@ -23960,10 +23958,10 @@ var Reducer = /** @class */ (function () {
     /***************************************************************************************************************
     *   Reduces the state in order to move a task up.
     *
-    *   @param {Object} state  The existing state object.
-    *   @param {Object} action The action to perform on the state object.
+    *   @param state  The existing state object.
+    *   @param action The action to perform on the state object.
     *
-    *   @return {Object} The new and reduced state object.
+    *   @return The new and reduced state object.
     ***************************************************************************************************************/
     Reducer.moveTaskUpReducer = function (state, action) {
         var newTasks = state.taskList.slice();
@@ -23980,10 +23978,10 @@ var Reducer = /** @class */ (function () {
     /***************************************************************************************************************
     *   Reduces the state in order to move a task down.
     *
-    *   @param {Object} state  The existing state object.
-    *   @param {Object} action The action to perform on the state object.
+    *   @param state  The existing state object.
+    *   @param action The action to perform on the state object.
     *
-    *   @return {Object} The new and reduced state object.
+    *   @return The new and reduced state object.
     ***************************************************************************************************************/
     Reducer.moveTaskDownReducer = function (state, action) {
         var newTasks = state.taskList.slice();
@@ -24000,10 +23998,10 @@ var Reducer = /** @class */ (function () {
     /***************************************************************************************************************
     *   Reduces the state in order to set a text for the input field.
     *
-    *   @param {Object} state  The existing state object.
-    *   @param {Object} action The action to perform on the state object.
+    *   @param state  The existing state object.
+    *   @param action The action to perform on the state object.
     *
-    *   @return {Object} The new and reduced state object.
+    *   @return The new and reduced state object.
     ***************************************************************************************************************/
     Reducer.setInputFieldReducer = function (state, action) {
         return {
@@ -24015,9 +24013,9 @@ var Reducer = /** @class */ (function () {
     /***************************************************************************************************************
     *   Reduces the state in order to clear the text in the input field.
     *
-    *   @param {Object} state The existing state object.
+    *   @param state The existing state object.
     *
-    *   @return {Object} The new and reduced state object.
+    *   @return The new and reduced state object.
     ***************************************************************************************************************/
     Reducer.clearInputFieldReducer = function (state) {
         return {
@@ -24029,9 +24027,9 @@ var Reducer = /** @class */ (function () {
     /***************************************************************************************************************
     *   Reduces the state in order to set the input error for the input field.
     *
-    *   @param {Object} state The existing state object.
+    *   @param state The existing state object.
     *
-    *   @return {Object} The new and reduced state object.
+    *   @return The new and reduced state object.
     ***************************************************************************************************************/
     Reducer.setInputErrorReducer = function (state) {
         return {
@@ -24043,9 +24041,9 @@ var Reducer = /** @class */ (function () {
     /***************************************************************************************************************
     *   Reduces the state in order to clear the input error for the input field.
     *
-    *   @param {Object} state The existing state object.
+    *   @param state The existing state object.
     *
-    *   @return {Object} The new and reduced state object.
+    *   @return The new and reduced state object.
     ***************************************************************************************************************/
     Reducer.clearInputErrorReducer = function (state) {
         return {
@@ -24057,7 +24055,7 @@ var Reducer = /** @class */ (function () {
     /***************************************************************************************************************
     *   Creates and returns the default state.
     *
-    *   @return {Object} The initially constructed state object.
+    *   @return The initially constructed state object.
     ***************************************************************************************************************/
     Reducer.createDefaultState = function () {
         return {

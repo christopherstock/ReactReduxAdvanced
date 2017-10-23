@@ -1,4 +1,5 @@
 
+    import * as Redux      from 'redux';
     import * as ReactRedux from 'react-redux';
     import * as tl         from '../tl';
 
@@ -44,14 +45,14 @@
         ***************************************************************************************************************/
         public static connectTaskInput() : any
         {
-            const mapStateToProps:any = ( state:any ) => {
+            const mapStateToProps:any = ( state:any) : any => {
                 return {
                     inputError: state.inputError,
-                    inputText:  state.inputText
+                    inputText:  state.inputText,
                 }
             };
 
-            const mapDispatchToProps:any = ( dispatch:any ) => {
+            const mapDispatchToProps:any = ( dispatch:Redux.Dispatch<Redux.Action> ) : any => {
                 return {
                     onTaskCreate:      ( text:string ) => dispatch( tl.Action.createTaskAction(      text ) ),
                     onSetInputField:   ( text:string ) => dispatch( tl.Action.setInputFieldAction(   text ) ),

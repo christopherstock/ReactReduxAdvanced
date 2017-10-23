@@ -9,3 +9,4 @@
     export * from './redux/Action';
     export * from './redux/Connector';
     export * from './redux/Reducer';
+    export * from './redux/State';
