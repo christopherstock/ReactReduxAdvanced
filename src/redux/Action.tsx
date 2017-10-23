@@ -23,7 +23,7 @@
         *
         *   @return {Object} The action object for creating a task.
         ***************************************************************************************************************/
-        static createTaskAction( taskName:string ) : any
+        public static createTaskAction( taskName:string ) : any
         {
             return {
                 type:     Action.ACTION_CREATE_TASK,
@@ -38,7 +38,7 @@
         *
         *   @return {Object} The action object for deleting a task.
         ***************************************************************************************************************/
-        static deleteTaskAction( taskIndex:number ) : any
+        public static deleteTaskAction( taskIndex:number ) : any
         {
             return {
                 type:      Action.ACTION_DELETE_TASK,
@@ -53,7 +53,7 @@
         *
         *   @return {Object} The action object for moving a task up.
         ***************************************************************************************************************/
-        static moveTaskUpAction( taskIndex:number ) : any
+        public static moveTaskUpAction( taskIndex:number ) : any
         {
             return {
                 type:      Action.ACTION_MOVE_TASK_UP,
@@ -68,7 +68,7 @@
         *
         *   @return {Object} The action object for moving a task down.
         ***************************************************************************************************************/
-        static moveTaskDownAction( taskIndex:number ) : any
+        public static moveTaskDownAction( taskIndex:number ) : any
         {
             return {
                 type:      Action.ACTION_MOVE_TASK_DOWN,
@@ -83,7 +83,7 @@
         *
         *   @return {Object} The action object for setting the input field.
         ***************************************************************************************************************/
-        static setInputFieldAction( inputText:string ) : any
+        public static setInputFieldAction( inputText:string ) : any
         {
             return {
                 type:      Action.ACTION_SET_INPUT_FIELD,
@@ -96,7 +96,7 @@
         *
         *   @return {Object} The action object for clearing the input field.
         ***************************************************************************************************************/
-        static clearInputFieldAction() : any
+        public static clearInputFieldAction() : any
         {
             return {
                 type: Action.ACTION_CLEAR_INPUT_FIELD,
@@ -108,7 +108,7 @@
         *
         *   @return {Object} The action object for setting the input error.
         ***************************************************************************************************************/
-        static setInputErrorAction() : any
+        public static setInputErrorAction() : any
         {
             return {
                 type: Action.ACTION_SET_INPUT_ERROR,
@@ -120,7 +120,7 @@
         *
         *   @return {Object} The action object for clearing the input error.
         ***************************************************************************************************************/
-        static clearInputErrorAction() : any
+        public static clearInputErrorAction() : any
         {
             return {
                 type: Action.ACTION_CLEAR_INPUT_ERROR,

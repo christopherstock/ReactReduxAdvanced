@@ -16,7 +16,7 @@
         *
         *   @return The rendered JSX.
         ***************************************************************************************************************/
-        render() : JSX.Element
+        public render() : JSX.Element
         {
             console.log( "TaskInput.render() being invoked" );
 
@@ -50,7 +50,7 @@
         *
         *   @param event The event when the input field value changes.
         ***************************************************************************************************************/
-        onInputChange( event:React.ChangeEvent<any> ) : void
+        private onInputChange( event:React.ChangeEvent<any> ) : void
         {
             console.log( "TaskInput.onInputChange being invoked" );
 
@@ -64,7 +64,7 @@
         *
         *   @param event The form submission event.
         ***************************************************************************************************************/
-        onFormSubmit( event:React.FormEvent<any> ) : void
+        private onFormSubmit( event:React.FormEvent<any> ) : void
         {
             console.log( "TaskInput.onFormSubmit being invoked" );
 

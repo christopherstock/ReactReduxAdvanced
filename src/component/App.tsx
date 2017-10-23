@@ -6,9 +6,9 @@
     *   The entire application component.
     *   This is an example for a stateful component.
     *
-    *   TODO ASAP Alter all :any types to discreet classes.
     *   TODO ASAP Add visibility modifiers to all methods.
     *   TODO ASAP Fix all doc blocks.
+    *   TODO ASAP Alter all :any types to discreet classes.
     *
     *   @author  Christopher Stock
     *   @version 1.0
@@ -20,7 +20,7 @@
         *
         *   @return The rendered JSX.
         ***************************************************************************************************************/
-        render() : JSX.Element
+        public render() : JSX.Element
         {
             console.log( "App.render() being invoked" );
 

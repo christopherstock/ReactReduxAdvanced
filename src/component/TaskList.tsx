@@ -16,7 +16,7 @@
         *
         *   @return JSX.Element The rendered JSX.
         ***************************************************************************************************************/
-        render() : JSX.Element
+        public render() : JSX.Element
         {
             console.log( "TaskList.render() being invoked" );
 
@@ -35,7 +35,7 @@
         *
         *   @return An array with all rendered JSX elements.
         ***************************************************************************************************************/
-        createItems() : JSX.Element[]
+        private createItems() : JSX.Element[]
         {
             let items = [];
 

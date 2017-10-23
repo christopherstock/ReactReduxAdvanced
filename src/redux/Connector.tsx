@@ -15,7 +15,7 @@
         *
         *   @return {Object} The connected react component.
         ***************************************************************************************************************/
-        static connectTaskList()
+        public static connectTaskList()
         {
             const mapStateToProps:any = ( state:any ) => {
                 return {
@@ -42,7 +42,7 @@
         *
         *   @return {Object} The connected react component.
         ***************************************************************************************************************/
-        static connectTaskInput()
+        public static connectTaskInput()
         {
             const mapStateToProps:any = ( state:any ) => {
                 return {

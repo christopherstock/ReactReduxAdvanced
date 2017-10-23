@@ -17,7 +17,7 @@
         *
         *   @return {Object} The new state object.
         ***************************************************************************************************************/
-        static taskListReducer( state = Reducer.createDefaultState() , action:any ) : any
+        public static taskListReducer( state = Reducer.createDefaultState() , action:any ) : any
         {
             console.log( "taskListReducer reduces action [", action, "] State BEFORE is [", state, "]" );
 
@@ -93,7 +93,7 @@
         *
         *   @return {Object} The new and reduced state object.
         ***************************************************************************************************************/
-        static createTaskReducer( state:any, action:any ) : any
+        private static createTaskReducer( state:any, action:any ) : any
         {
             let newTasks = state.taskList.slice();
             newTasks.push( action.taskName );
@@ -113,7 +113,7 @@
         *
         *   @return {Object} The new and reduced state object.
         ***************************************************************************************************************/
-        static deleteTaskReducer( state:any, action:any ) : any
+        private static deleteTaskReducer( state:any, action:any ) : any
         {
             let newTasks = state.taskList.slice();
             newTasks.splice( action.taskIndex, 1 );
@@ -133,7 +133,7 @@
         *
         *   @return {Object} The new and reduced state object.
         ***************************************************************************************************************/
-        static moveTaskUpReducer( state:any, action:any ) : any
+        private static moveTaskUpReducer( state:any, action:any ) : any
         {
             let newTasks       = state.taskList.slice();
             let taskToMoveUp   = newTasks[ action.taskIndex     ];
@@ -157,7 +157,7 @@
         *
         *   @return {Object} The new and reduced state object.
         ***************************************************************************************************************/
-        static moveTaskDownReducer( state:any, action:any ) : any
+        private static moveTaskDownReducer( state:any, action:any ) : any
         {
             let newTasks       = state.taskList.slice();
             let taskToMoveUp   = newTasks[ action.taskIndex + 1 ];
@@ -181,7 +181,7 @@
         *
         *   @return {Object} The new and reduced state object.
         ***************************************************************************************************************/
-        static setInputFieldReducer( state:any, action:any ) : any
+        private static setInputFieldReducer( state:any, action:any ) : any
         {
             return {
                 taskList:   state.taskList,
@@ -197,7 +197,7 @@
         *
         *   @return {Object} The new and reduced state object.
         ***************************************************************************************************************/
-        static clearInputFieldReducer( state:any ) : any
+        private static clearInputFieldReducer( state:any ) : any
         {
             return {
                 taskList:   state.taskList,
@@ -213,7 +213,7 @@
         *
         *   @return {Object} The new and reduced state object.
         ***************************************************************************************************************/
-        static setInputErrorReducer( state:any ) : any
+        private static setInputErrorReducer( state:any ) : any
         {
             return {
                 taskList:   state.taskList,
@@ -229,7 +229,7 @@
         *
         *   @return {Object} The new and reduced state object.
         ***************************************************************************************************************/
-        static clearInputErrorReducer( state:any ) : any
+        private static clearInputErrorReducer( state:any ) : any
         {
             return {
                 taskList:   state.taskList,
@@ -243,7 +243,7 @@
         *
         *   @return {Object} The initially constructed state object.
         ***************************************************************************************************************/
-        static createDefaultState() : any
+        private static createDefaultState() : any
         {
             return {
                 taskList:   [],
