@@ -6,7 +6,7 @@ exports.__esModule = true;
 __export(require("./component/App"));
 __export(require("./component/TaskInput"));
 __export(require("./component/TaskList"));
-__export(require("./redux/Action"));
+__export(require("./redux/ActionCreator"));
 __export(require("./redux/Connector"));
 __export(require("./redux/Reducer"));
 //# sourceMappingURL=tl.js.map

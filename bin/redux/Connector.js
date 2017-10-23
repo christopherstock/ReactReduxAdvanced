@@ -24,9 +24,9 @@ var Connector = /** @class */ (function () {
         };
         var mapDispatchToProps = function (dispatch) {
             return {
-                onTaskDelete: function (index) { return dispatch(tl.Action.deleteTaskAction(index)); },
-                onTaskMoveUp: function (index) { return dispatch(tl.Action.moveTaskUpAction(index)); },
-                onTaskMoveDown: function (index) { return dispatch(tl.Action.moveTaskDownAction(index)); }
+                onTaskDelete: function (index) { return dispatch(tl.ActionCreator.deleteTaskAction(index)); },
+                onTaskMoveUp: function (index) { return dispatch(tl.ActionCreator.moveTaskUpAction(index)); },
+                onTaskMoveDown: function (index) { return dispatch(tl.ActionCreator.moveTaskDownAction(index)); }
             };
         };
         return ReactRedux.connect(mapStateToProps, mapDispatchToProps)(tl.TaskListUnconnected);
@@ -45,11 +45,11 @@ var Connector = /** @class */ (function () {
         };
         var mapDispatchToProps = function (dispatch) {
             return {
-                onTaskCreate: function (text) { return dispatch(tl.Action.createTaskAction(text)); },
-                onSetInputField: function (text) { return dispatch(tl.Action.setInputFieldAction(text)); },
-                onClearInputField: function () { return dispatch(tl.Action.clearInputFieldAction()); },
-                onSetInputError: function () { return dispatch(tl.Action.setInputErrorAction()); },
-                onClearInputError: function () { return dispatch(tl.Action.clearInputErrorAction()); }
+                onTaskCreate: function (text) { return dispatch(tl.ActionCreator.createTaskAction(text)); },
+                onSetInputField: function (text) { return dispatch(tl.ActionCreator.setInputFieldAction(text)); },
+                onClearInputField: function () { return dispatch(tl.ActionCreator.clearInputFieldAction()); },
+                onSetInputError: function () { return dispatch(tl.ActionCreator.setInputErrorAction()); },
+                onClearInputError: function () { return dispatch(tl.ActionCreator.clearInputErrorAction()); }
             };
         };
         return ReactRedux.connect(mapStateToProps, mapDispatchToProps)(tl.TaskInputUnconnected);

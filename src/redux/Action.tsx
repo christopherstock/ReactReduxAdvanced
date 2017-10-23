@@ -1,131 +1,16 @@
 
-    import * as tl from '../tl';
+    import * as Redux from 'redux';
 
     /*******************************************************************************************************************
-    *   Specifies all redux action creators.
+    *   Specifies all redux actions for the application.
     *
     *   @author  Christopher Stock
     *   @version 1.0
     *******************************************************************************************************************/
-    export class Action
+    export interface Action extends Redux.Action
     {
-        public  static  readonly    ACTION_CREATE_TASK          :string         = 'ACTION_CREATE_TASK';
-        public  static  readonly    ACTION_DELETE_TASK          :string         = 'ACTION_DELETE_TASK';
-        public  static  readonly    ACTION_MOVE_TASK_UP         :string         = 'ACTION_MOVE_TASK_UP';
-        public  static  readonly    ACTION_MOVE_TASK_DOWN       :string         = 'ACTION_MOVE_TASK_DOWN';
-        public  static  readonly    ACTION_SET_INPUT_FIELD      :string         = 'ACTION_SET_INPUT_FIELD';
-        public  static  readonly    ACTION_CLEAR_INPUT_FIELD    :string         = 'ACTION_CLEAR_INPUT_FIELD';
-        public  static  readonly    ACTION_SET_INPUT_ERROR      :string         = 'ACTION_SET_INPUT_ERROR';
-        public  static  readonly    ACTION_CLEAR_INPUT_ERROR    :string         = 'ACTION_CLEAR_INPUT_ERROR';
-
-        /***************************************************************************************************************
-        *   Specifies the redux action 'create task'.
-        *
-        *   @param taskName The name of the task to create.
-        *
-        *   @return The action object for creating a task.
-        ***************************************************************************************************************/
-        public static createTaskAction( taskName:string ) : tl.MyAction
-        {
-            return {
-                type:     Action.ACTION_CREATE_TASK,
-                taskName: taskName,
-            }
-        }
-
-        /***************************************************************************************************************
-        *   Specifies the redux action 'delete task'.
-        *
-        *   @param taskIndex The index of the task to delete.
-        *
-        *   @return The action object for deleting a task.
-        ***************************************************************************************************************/
-        public static deleteTaskAction( taskIndex:number ) : tl.MyAction
-        {
-            return {
-                type:      Action.ACTION_DELETE_TASK,
-                taskIndex: taskIndex,
-            }
-        }
-
-        /***************************************************************************************************************
-        *   Specifies the redux action 'move task up'.
-        *
-        *   @param taskIndex The index of the task to move up.
-        *
-        *   @return The action object for moving a task up.
-        ***************************************************************************************************************/
-        public static moveTaskUpAction( taskIndex:number ) : tl.MyAction
-        {
-            return {
-                type:      Action.ACTION_MOVE_TASK_UP,
-                taskIndex: taskIndex,
-            }
-        }
-
-        /***************************************************************************************************************
-        *   Specifies the redux action 'move task down'.
-        *
-        *   @param taskIndex The index of the task to move down.
-        *
-        *   @return The action object for moving a task down.
-        ***************************************************************************************************************/
-        public static moveTaskDownAction( taskIndex:number ) : tl.MyAction
-        {
-            return {
-                type:      Action.ACTION_MOVE_TASK_DOWN,
-                taskIndex: taskIndex,
-            }
-        }
-
-        /***************************************************************************************************************
-        *   Specifies the redux action 'set input field'.
-        *
-        *   @param inputText The text to set into the input field.
-        *
-        *   @return The action object for setting the input field.
-        ***************************************************************************************************************/
-        public static setInputFieldAction( inputText:string ) : tl.MyAction
-        {
-            return {
-                type:      Action.ACTION_SET_INPUT_FIELD,
-                inputText: inputText,
-            }
-        }
-
-        /***************************************************************************************************************
-        *   Specifies the redux action 'clear input field'.
-        *
-        *   @return The action object for clearing the input field.
-        ***************************************************************************************************************/
-        public static clearInputFieldAction() : tl.MyAction
-        {
-            return {
-                type: Action.ACTION_CLEAR_INPUT_FIELD,
-            }
-        }
-
-        /***************************************************************************************************************
-        *   Specifies the redux action 'set input error'.
-        *
-        *   @return The action object for setting the input error.
-        ***************************************************************************************************************/
-        public static setInputErrorAction() : tl.MyAction
-        {
-            return {
-                type: Action.ACTION_SET_INPUT_ERROR,
-            }
-        }
-
-        /***************************************************************************************************************
-        *   Specifies the redux action 'clear input error'.
-        *
-        *   @return The action object for clearing the input error.
-        ***************************************************************************************************************/
-        public static clearInputErrorAction() : tl.MyAction
-        {
-            return {
-                type: Action.ACTION_CLEAR_INPUT_ERROR,
-            }
-        }
+        type       :string;
+        taskName?  :string;
+        taskIndex? :number;
+        inputText? :string;
     }

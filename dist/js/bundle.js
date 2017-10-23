@@ -573,7 +573,7 @@ exports.__esModule = true;
 __export(__webpack_require__(72));
 __export(__webpack_require__(73));
 __export(__webpack_require__(74));
-__export(__webpack_require__(75));
+__export(__webpack_require__(78));
 __export(__webpack_require__(76));
 __export(__webpack_require__(77));
 
@@ -1976,9 +1976,9 @@ window.onload = function () {
     // create redux store
     var store = Redux.createStore(tl.Reducer.taskListReducer);
     // dispatch default items
-    store.dispatch(tl.Action.createTaskAction("Müll rausbringen"));
-    store.dispatch(tl.Action.createTaskAction("Abwaschen"));
-    store.dispatch(tl.Action.createTaskAction("Wäsche waschen"));
+    store.dispatch(tl.ActionCreator.createTaskAction("Müll rausbringen"));
+    store.dispatch(tl.ActionCreator.createTaskAction("Abwaschen"));
+    store.dispatch(tl.ActionCreator.createTaskAction("Wäsche waschen"));
     // render the App component into the main container
     ReactDOM.render(React.createElement(ReactRedux.Provider, { store: store },
         React.createElement(tl.App, { title: APPLICATION_TITLE })), document.getElementById('mainContainer'));
@@ -23653,130 +23653,7 @@ exports.TaskListUnconnected = TaskListUnconnected;
 
 
 /***/ }),
-/* 75 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-exports.__esModule = true;
-/*******************************************************************************************************************
-*   Specifies all redux action creators.
-*
-*   @author  Christopher Stock
-*   @version 1.0
-*******************************************************************************************************************/
-var Action = /** @class */ (function () {
-    function Action() {
-    }
-    /***************************************************************************************************************
-    *   Specifies the redux action 'create task'.
-    *
-    *   @param taskName The name of the task to create.
-    *
-    *   @return The action object for creating a task.
-    ***************************************************************************************************************/
-    Action.createTaskAction = function (taskName) {
-        return {
-            type: Action.ACTION_CREATE_TASK,
-            taskName: taskName
-        };
-    };
-    /***************************************************************************************************************
-    *   Specifies the redux action 'delete task'.
-    *
-    *   @param taskIndex The index of the task to delete.
-    *
-    *   @return The action object for deleting a task.
-    ***************************************************************************************************************/
-    Action.deleteTaskAction = function (taskIndex) {
-        return {
-            type: Action.ACTION_DELETE_TASK,
-            taskIndex: taskIndex
-        };
-    };
-    /***************************************************************************************************************
-    *   Specifies the redux action 'move task up'.
-    *
-    *   @param taskIndex The index of the task to move up.
-    *
-    *   @return The action object for moving a task up.
-    ***************************************************************************************************************/
-    Action.moveTaskUpAction = function (taskIndex) {
-        return {
-            type: Action.ACTION_MOVE_TASK_UP,
-            taskIndex: taskIndex
-        };
-    };
-    /***************************************************************************************************************
-    *   Specifies the redux action 'move task down'.
-    *
-    *   @param taskIndex The index of the task to move down.
-    *
-    *   @return The action object for moving a task down.
-    ***************************************************************************************************************/
-    Action.moveTaskDownAction = function (taskIndex) {
-        return {
-            type: Action.ACTION_MOVE_TASK_DOWN,
-            taskIndex: taskIndex
-        };
-    };
-    /***************************************************************************************************************
-    *   Specifies the redux action 'set input field'.
-    *
-    *   @param inputText The text to set into the input field.
-    *
-    *   @return The action object for setting the input field.
-    ***************************************************************************************************************/
-    Action.setInputFieldAction = function (inputText) {
-        return {
-            type: Action.ACTION_SET_INPUT_FIELD,
-            inputText: inputText
-        };
-    };
-    /***************************************************************************************************************
-    *   Specifies the redux action 'clear input field'.
-    *
-    *   @return The action object for clearing the input field.
-    ***************************************************************************************************************/
-    Action.clearInputFieldAction = function () {
-        return {
-            type: Action.ACTION_CLEAR_INPUT_FIELD
-        };
-    };
-    /***************************************************************************************************************
-    *   Specifies the redux action 'set input error'.
-    *
-    *   @return The action object for setting the input error.
-    ***************************************************************************************************************/
-    Action.setInputErrorAction = function () {
-        return {
-            type: Action.ACTION_SET_INPUT_ERROR
-        };
-    };
-    /***************************************************************************************************************
-    *   Specifies the redux action 'clear input error'.
-    *
-    *   @return The action object for clearing the input error.
-    ***************************************************************************************************************/
-    Action.clearInputErrorAction = function () {
-        return {
-            type: Action.ACTION_CLEAR_INPUT_ERROR
-        };
-    };
-    Action.ACTION_CREATE_TASK = 'ACTION_CREATE_TASK';
-    Action.ACTION_DELETE_TASK = 'ACTION_DELETE_TASK';
-    Action.ACTION_MOVE_TASK_UP = 'ACTION_MOVE_TASK_UP';
-    Action.ACTION_MOVE_TASK_DOWN = 'ACTION_MOVE_TASK_DOWN';
-    Action.ACTION_SET_INPUT_FIELD = 'ACTION_SET_INPUT_FIELD';
-    Action.ACTION_CLEAR_INPUT_FIELD = 'ACTION_CLEAR_INPUT_FIELD';
-    Action.ACTION_SET_INPUT_ERROR = 'ACTION_SET_INPUT_ERROR';
-    Action.ACTION_CLEAR_INPUT_ERROR = 'ACTION_CLEAR_INPUT_ERROR';
-    return Action;
-}());
-exports.Action = Action;
-
-
-/***/ }),
+/* 75 */,
 /* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -23807,9 +23684,9 @@ var Connector = /** @class */ (function () {
         };
         var mapDispatchToProps = function (dispatch) {
             return {
-                onTaskDelete: function (index) { return dispatch(tl.Action.deleteTaskAction(index)); },
-                onTaskMoveUp: function (index) { return dispatch(tl.Action.moveTaskUpAction(index)); },
-                onTaskMoveDown: function (index) { return dispatch(tl.Action.moveTaskDownAction(index)); }
+                onTaskDelete: function (index) { return dispatch(tl.ActionCreator.deleteTaskAction(index)); },
+                onTaskMoveUp: function (index) { return dispatch(tl.ActionCreator.moveTaskUpAction(index)); },
+                onTaskMoveDown: function (index) { return dispatch(tl.ActionCreator.moveTaskDownAction(index)); }
             };
         };
         return ReactRedux.connect(mapStateToProps, mapDispatchToProps)(tl.TaskListUnconnected);
@@ -23828,11 +23705,11 @@ var Connector = /** @class */ (function () {
         };
         var mapDispatchToProps = function (dispatch) {
             return {
-                onTaskCreate: function (text) { return dispatch(tl.Action.createTaskAction(text)); },
-                onSetInputField: function (text) { return dispatch(tl.Action.setInputFieldAction(text)); },
-                onClearInputField: function () { return dispatch(tl.Action.clearInputFieldAction()); },
-                onSetInputError: function () { return dispatch(tl.Action.setInputErrorAction()); },
-                onClearInputError: function () { return dispatch(tl.Action.clearInputErrorAction()); }
+                onTaskCreate: function (text) { return dispatch(tl.ActionCreator.createTaskAction(text)); },
+                onSetInputField: function (text) { return dispatch(tl.ActionCreator.setInputFieldAction(text)); },
+                onClearInputField: function () { return dispatch(tl.ActionCreator.clearInputFieldAction()); },
+                onSetInputError: function () { return dispatch(tl.ActionCreator.setInputErrorAction()); },
+                onClearInputError: function () { return dispatch(tl.ActionCreator.clearInputErrorAction()); }
             };
         };
         return ReactRedux.connect(mapStateToProps, mapDispatchToProps)(tl.TaskInputUnconnected);
@@ -23872,42 +23749,42 @@ var Reducer = /** @class */ (function () {
         console.log("taskListReducer reduces action [", action, "] State BEFORE is [", state, "]");
         var newState = null;
         switch (action.type) {
-            case tl.Action.ACTION_CREATE_TASK:
+            case tl.ActionCreator.ACTION_CREATE_TASK:
                 {
                     newState = Reducer.createTaskReducer(state, action);
                     break;
                 }
-            case tl.Action.ACTION_DELETE_TASK:
+            case tl.ActionCreator.ACTION_DELETE_TASK:
                 {
                     newState = Reducer.deleteTaskReducer(state, action);
                     break;
                 }
-            case tl.Action.ACTION_MOVE_TASK_UP:
+            case tl.ActionCreator.ACTION_MOVE_TASK_UP:
                 {
                     newState = Reducer.moveTaskUpReducer(state, action);
                     break;
                 }
-            case tl.Action.ACTION_MOVE_TASK_DOWN:
+            case tl.ActionCreator.ACTION_MOVE_TASK_DOWN:
                 {
                     newState = Reducer.moveTaskDownReducer(state, action);
                     break;
                 }
-            case tl.Action.ACTION_SET_INPUT_FIELD:
+            case tl.ActionCreator.ACTION_SET_INPUT_FIELD:
                 {
                     newState = Reducer.setInputFieldReducer(state, action);
                     break;
                 }
-            case tl.Action.ACTION_CLEAR_INPUT_FIELD:
+            case tl.ActionCreator.ACTION_CLEAR_INPUT_FIELD:
                 {
                     newState = Reducer.clearInputFieldReducer(state);
                     break;
                 }
-            case tl.Action.ACTION_SET_INPUT_ERROR:
+            case tl.ActionCreator.ACTION_SET_INPUT_ERROR:
                 {
                     newState = Reducer.setInputErrorReducer(state);
                     break;
                 }
-            case tl.Action.ACTION_CLEAR_INPUT_ERROR:
+            case tl.ActionCreator.ACTION_CLEAR_INPUT_ERROR:
                 {
                     newState = Reducer.clearInputErrorReducer(state);
                     break;
@@ -24067,6 +23944,130 @@ var Reducer = /** @class */ (function () {
     return Reducer;
 }());
 exports.Reducer = Reducer;
+
+
+/***/ }),
+/* 78 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+exports.__esModule = true;
+/*******************************************************************************************************************
+*   Specifies all redux action creators.
+*
+*   @author  Christopher Stock
+*   @version 1.0
+*******************************************************************************************************************/
+var ActionCreator = /** @class */ (function () {
+    function ActionCreator() {
+    }
+    /***************************************************************************************************************
+    *   Specifies the redux action 'create task'.
+    *
+    *   @param taskName The name of the task to create.
+    *
+    *   @return The action object for creating a task.
+    ***************************************************************************************************************/
+    ActionCreator.createTaskAction = function (taskName) {
+        return {
+            type: ActionCreator.ACTION_CREATE_TASK,
+            taskName: taskName
+        };
+    };
+    /***************************************************************************************************************
+    *   Specifies the redux action 'delete task'.
+    *
+    *   @param taskIndex The index of the task to delete.
+    *
+    *   @return The action object for deleting a task.
+    ***************************************************************************************************************/
+    ActionCreator.deleteTaskAction = function (taskIndex) {
+        return {
+            type: ActionCreator.ACTION_DELETE_TASK,
+            taskIndex: taskIndex
+        };
+    };
+    /***************************************************************************************************************
+    *   Specifies the redux action 'move task up'.
+    *
+    *   @param taskIndex The index of the task to move up.
+    *
+    *   @return The action object for moving a task up.
+    ***************************************************************************************************************/
+    ActionCreator.moveTaskUpAction = function (taskIndex) {
+        return {
+            type: ActionCreator.ACTION_MOVE_TASK_UP,
+            taskIndex: taskIndex
+        };
+    };
+    /***************************************************************************************************************
+    *   Specifies the redux action 'move task down'.
+    *
+    *   @param taskIndex The index of the task to move down.
+    *
+    *   @return The action object for moving a task down.
+    ***************************************************************************************************************/
+    ActionCreator.moveTaskDownAction = function (taskIndex) {
+        return {
+            type: ActionCreator.ACTION_MOVE_TASK_DOWN,
+            taskIndex: taskIndex
+        };
+    };
+    /***************************************************************************************************************
+    *   Specifies the redux action 'set input field'.
+    *
+    *   @param inputText The text to set into the input field.
+    *
+    *   @return The action object for setting the input field.
+    ***************************************************************************************************************/
+    ActionCreator.setInputFieldAction = function (inputText) {
+        return {
+            type: ActionCreator.ACTION_SET_INPUT_FIELD,
+            inputText: inputText
+        };
+    };
+    /***************************************************************************************************************
+    *   Specifies the redux action 'clear input field'.
+    *
+    *   @return The action object for clearing the input field.
+    ***************************************************************************************************************/
+    ActionCreator.clearInputFieldAction = function () {
+        return {
+            type: ActionCreator.ACTION_CLEAR_INPUT_FIELD
+        };
+    };
+    /***************************************************************************************************************
+    *   Specifies the redux action 'set input error'.
+    *
+    *   @return The action object for setting the input error.
+    ***************************************************************************************************************/
+    ActionCreator.setInputErrorAction = function () {
+        return {
+            type: ActionCreator.ACTION_SET_INPUT_ERROR
+        };
+    };
+    /***************************************************************************************************************
+    *   Specifies the redux action 'clear input error'.
+    *
+    *   @return The action object for clearing the input error.
+    ***************************************************************************************************************/
+    ActionCreator.clearInputErrorAction = function () {
+        return {
+            type: ActionCreator.ACTION_CLEAR_INPUT_ERROR
+        };
+    };
+    ActionCreator.ACTION_CREATE_TASK = 'ACTION_CREATE_TASK';
+    ActionCreator.ACTION_DELETE_TASK = 'ACTION_DELETE_TASK';
+    ActionCreator.ACTION_MOVE_TASK_UP = 'ACTION_MOVE_TASK_UP';
+    ActionCreator.ACTION_MOVE_TASK_DOWN = 'ACTION_MOVE_TASK_DOWN';
+    ActionCreator.ACTION_SET_INPUT_FIELD = 'ACTION_SET_INPUT_FIELD';
+    ActionCreator.ACTION_CLEAR_INPUT_FIELD = 'ACTION_CLEAR_INPUT_FIELD';
+    ActionCreator.ACTION_SET_INPUT_ERROR = 'ACTION_SET_INPUT_ERROR';
+    ActionCreator.ACTION_CLEAR_INPUT_ERROR = 'ACTION_CLEAR_INPUT_ERROR';
+    return ActionCreator;
+}());
+exports.ActionCreator = ActionCreator;
 
 
 /***/ })

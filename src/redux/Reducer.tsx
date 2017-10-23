@@ -25,49 +25,49 @@
 
             switch ( action.type )
             {
-                case tl.Action.ACTION_CREATE_TASK:
+                case tl.ActionCreator.ACTION_CREATE_TASK:
                 {
                     newState = Reducer.createTaskReducer( state, action );
                     break;
                 }
 
-                case tl.Action.ACTION_DELETE_TASK:
+                case tl.ActionCreator.ACTION_DELETE_TASK:
                 {
                     newState = Reducer.deleteTaskReducer( state, action );
                     break;
                 }
 
-                case tl.Action.ACTION_MOVE_TASK_UP:
+                case tl.ActionCreator.ACTION_MOVE_TASK_UP:
                 {
                     newState = Reducer.moveTaskUpReducer( state, action );
                     break;
                 }
 
-                case tl.Action.ACTION_MOVE_TASK_DOWN:
+                case tl.ActionCreator.ACTION_MOVE_TASK_DOWN:
                 {
                     newState = Reducer.moveTaskDownReducer( state, action );
                     break;
                 }
 
-                case tl.Action.ACTION_SET_INPUT_FIELD:
+                case tl.ActionCreator.ACTION_SET_INPUT_FIELD:
                 {
                     newState = Reducer.setInputFieldReducer( state, action );
                     break;
                 }
 
-                case tl.Action.ACTION_CLEAR_INPUT_FIELD:
+                case tl.ActionCreator.ACTION_CLEAR_INPUT_FIELD:
                 {
                     newState = Reducer.clearInputFieldReducer( state );
                     break;
                 }
 
-                case tl.Action.ACTION_SET_INPUT_ERROR:
+                case tl.ActionCreator.ACTION_SET_INPUT_ERROR:
                 {
                     newState = Reducer.setInputErrorReducer( state );
                     break;
                 }
 
-                case tl.Action.ACTION_CLEAR_INPUT_ERROR:
+                case tl.ActionCreator.ACTION_CLEAR_INPUT_ERROR:
                 {
                     newState = Reducer.clearInputErrorReducer( state );
                     break;

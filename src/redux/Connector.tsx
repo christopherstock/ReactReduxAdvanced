@@ -26,9 +26,9 @@
 
             const mapDispatchToProps:any = ( dispatch:any ) => {
                 return {
-                    onTaskDelete:   ( index:number ) => dispatch( tl.Action.deleteTaskAction(   index ) ),
-                    onTaskMoveUp:   ( index:number ) => dispatch( tl.Action.moveTaskUpAction(   index ) ),
-                    onTaskMoveDown: ( index:number ) => dispatch( tl.Action.moveTaskDownAction( index ) ),
+                    onTaskDelete:   ( index:number ) => dispatch( tl.ActionCreator.deleteTaskAction(   index ) ),
+                    onTaskMoveUp:   ( index:number ) => dispatch( tl.ActionCreator.moveTaskUpAction(   index ) ),
+                    onTaskMoveDown: ( index:number ) => dispatch( tl.ActionCreator.moveTaskDownAction( index ) ),
                 }
             };
 
@@ -54,11 +54,11 @@
 
             const mapDispatchToProps:any = ( dispatch:Redux.Dispatch<Redux.Action> ) : any => {
                 return {
-                    onTaskCreate:      ( text:string ) => dispatch( tl.Action.createTaskAction(      text ) ),
-                    onSetInputField:   ( text:string ) => dispatch( tl.Action.setInputFieldAction(   text ) ),
-                    onClearInputField: ()              => dispatch( tl.Action.clearInputFieldAction()       ),
-                    onSetInputError:   ()              => dispatch( tl.Action.setInputErrorAction()         ),
-                    onClearInputError: ()              => dispatch( tl.Action.clearInputErrorAction()       ),
+                    onTaskCreate:      ( text:string ) => dispatch( tl.ActionCreator.createTaskAction(      text ) ),
+                    onSetInputField:   ( text:string ) => dispatch( tl.ActionCreator.setInputFieldAction(   text ) ),
+                    onClearInputField: ()              => dispatch( tl.ActionCreator.clearInputFieldAction()       ),
+                    onSetInputError:   ()              => dispatch( tl.ActionCreator.setInputErrorAction()         ),
+                    onClearInputError: ()              => dispatch( tl.ActionCreator.clearInputErrorAction()       ),
                 }
             };
 
