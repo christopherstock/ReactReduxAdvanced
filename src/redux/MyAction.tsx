@@ -1,13 +1,16 @@
 
+    import * as Redux from 'redux';
+
     /*******************************************************************************************************************
-    *   Defines the global state being handles by the Redux state handling system.
+    *   Specifies all redux actions for the application.
     *
     *   @author  Christopher Stock
     *   @version 1.0
     *******************************************************************************************************************/
-    export interface State
+    export interface MyAction extends Redux.Action
     {
-        taskList   :Array<string>,
-        inputError :boolean,
-        inputText  :string,
+        type       :string;
+        taskName?  :string;
+        taskIndex? :number;
+        inputText? :string;
     }

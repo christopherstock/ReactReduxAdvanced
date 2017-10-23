@@ -1,4 +1,6 @@
 
+    import * as tl from '../tl';
+
     /*******************************************************************************************************************
     *   Specifies all redux action creators.
     *
@@ -23,7 +25,7 @@
         *
         *   @return The action object for creating a task.
         ***************************************************************************************************************/
-        public static createTaskAction( taskName:string ) : any
+        public static createTaskAction( taskName:string ) : tl.MyAction
         {
             return {
                 type:     Action.ACTION_CREATE_TASK,
@@ -38,7 +40,7 @@
         *
         *   @return The action object for deleting a task.
         ***************************************************************************************************************/
-        public static deleteTaskAction( taskIndex:number ) : any
+        public static deleteTaskAction( taskIndex:number ) : tl.MyAction
         {
             return {
                 type:      Action.ACTION_DELETE_TASK,
@@ -53,7 +55,7 @@
         *
         *   @return The action object for moving a task up.
         ***************************************************************************************************************/
-        public static moveTaskUpAction( taskIndex:number ) : any
+        public static moveTaskUpAction( taskIndex:number ) : tl.MyAction
         {
             return {
                 type:      Action.ACTION_MOVE_TASK_UP,
@@ -68,7 +70,7 @@
         *
         *   @return The action object for moving a task down.
         ***************************************************************************************************************/
-        public static moveTaskDownAction( taskIndex:number ) : any
+        public static moveTaskDownAction( taskIndex:number ) : tl.MyAction
         {
             return {
                 type:      Action.ACTION_MOVE_TASK_DOWN,
@@ -83,7 +85,7 @@
         *
         *   @return The action object for setting the input field.
         ***************************************************************************************************************/
-        public static setInputFieldAction( inputText:string ) : any
+        public static setInputFieldAction( inputText:string ) : tl.MyAction
         {
             return {
                 type:      Action.ACTION_SET_INPUT_FIELD,
@@ -96,7 +98,7 @@
         *
         *   @return The action object for clearing the input field.
         ***************************************************************************************************************/
-        public static clearInputFieldAction() : any
+        public static clearInputFieldAction() : tl.MyAction
         {
             return {
                 type: Action.ACTION_CLEAR_INPUT_FIELD,
@@ -108,7 +110,7 @@
         *
         *   @return The action object for setting the input error.
         ***************************************************************************************************************/
-        public static setInputErrorAction() : any
+        public static setInputErrorAction() : tl.MyAction
         {
             return {
                 type: Action.ACTION_SET_INPUT_ERROR,
@@ -120,7 +122,7 @@
         *
         *   @return The action object for clearing the input error.
         ***************************************************************************************************************/
-        public static clearInputErrorAction() : any
+        public static clearInputErrorAction() : tl.MyAction
         {
             return {
                 type: Action.ACTION_CLEAR_INPUT_ERROR,

@@ -8,5 +8,6 @@
 
     export * from './redux/Action';
     export * from './redux/Connector';
+    export * from './redux/MyAction';
     export * from './redux/Reducer';
     export * from './redux/State';
